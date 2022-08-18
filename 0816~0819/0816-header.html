@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="root">
+    <ul>
+      <li>menus-1</li>
+      <li>menus-2</li>
+      <li>menus-3</li>
+      <li>menus-4</li>
+      <li>menus-5</li>
+    </ul>
+    <button>click here!</button>
+  </div>
+  <script>
+
+    const root = document.getElementById('root');
+    const button = root.children[1];
+    const liItems = root.children[0].children;
+    const asdf = document.body.children[0].children[0].children[0];
+    console.dir(asdf.textContent)
+
+    let li1 = document.querySelectorAll('ul>li');
+    console.log(li1);
+
+
+    button.addEventListener('click',function(){
+      for(i=0;i<liItems.length;i=i+2){
+      liItems[i].style.backgroundColor = 'pink'
+      liItems[i].style.color = 'red'
+    }
+      for(i=1;i<liItems.length;i=i+2){
+      liItems[i].style.backgroundColor = 'skyblue'
+      liItems[i].style.color = 'blue'
+    }
+    })
+
+    
+
+
+
+
+
+  </script>
+</body>
+</html>

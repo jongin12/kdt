@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="root">
+    <ul>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+  </div>
+  <script>
+
+    let studentList = ["강예훈","김성현","류주완","마근원","문예찬","박종인","박재형","송형주","양상희","원두진","유민호","이상호","이소영","이은수","정동욱","정윤환","정정원","지영빈","한용준","황초영","김근수","김승현","김지애","전형민","정연주","이아연","최화연","한가람"
+    ];
+    const liItems = document.getElementById('root').children[0].children;
+    console.log(liItems);
+    console.log(liItems.length);
+    console.log(studentList.length);
+
+    if(studentList.length === liItems.length){
+      for(i=0;i<liItems.length;i++){
+        liItems[i].textContent = studentList[i];
+        liItems[i].style.width = '100px'
+        liItems[i].style.height = '30px'
+        liItems[i].style.border = '1px solid black'
+      }
+    }
+
+    const box = document.querySelector('#root>ul');
+    console.log(box);
+    box.addEventListener('click',function(event){
+      event.target.style.backgroundColor = '#aaa'
+    })
+
+
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #root{
+      width: 600px;
+      height: 100px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      background-color: #ccc;
+    }
+    div>div{
+      width: 80px;
+      height: 80px;
+      background-color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1em;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <div id="root">
+    <div>피카츄</div>
+    <div>라이츄</div>
+    <div>파이리</div>
+    <div>꼬부기</div>
+    <div>버터풀</div>
+    <div>야도란</div>
+  </div>
+  <script>
+    const root = document.getElementById('root');
+    const box = root.children;
+
+    console.log(box);
+
+    root.addEventListener('click',function(){
+      root.style.flexDirection = 'column'
+      root.style.width = '100px'
+      root.style.height = '600px'
+    })
+
+
+  </script>
+</body>
+</html>

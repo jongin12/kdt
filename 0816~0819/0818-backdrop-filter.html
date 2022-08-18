@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{
+      margin: 0px;
+      padding: 0px;
+      box-sizing: border-box;
+    }
+    #root{
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    div>div>div{
+      width: 20vw;
+      height: 20vh;
+      background-color: blue;
+    }
+    div>div:nth-child(2){
+      width: 30vw;
+      height: 30vh;
+      background-color: rgba(200,200,200,0.5);
+      position: relative;
+      right:30px;
+      backdrop-filter: blur(1px);
+    }
+  </style>
+</head>
+<body>
+  <div id="root">
+    <div>
+      <div></div>
+    </div>
+    <div></div>
+  </div>
+</body>
+</html>

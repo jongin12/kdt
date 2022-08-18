@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{
+      margin: 0px;
+      padding: 0px;
+      box-sizing: border-box;
+    }
+    #pointer{
+      width: 10px;
+      height: 10px;
+      border-radius: 5px;
+      background-color: red;
+      position: absolute;
+    }
+  </style>
+</head>
+<body>
+  <div id="root">
+    <div id="pointer"></div>
+  </div>
+  <script>
+
+    const pointer = document.getElementById('pointer');
+    console.log(pointer);
+
+    window.addEventListener('mousemove',function(event){
+      pointer.style.left = event.offsetX + 'px'
+      pointer.style.top = event.offsetY + 'px'
+    })
+
+
+
+
+
+
+
+
+
+
+
+  </script>
+</body>
+</html>

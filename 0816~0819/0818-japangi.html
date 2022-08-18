@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{
+      margin: 0px;
+      padding: 0px;
+      box-sizing: border-box;
+    }
+    #root{
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    #root>div{
+      width: 800px;
+      height: 600px;
+      background-color: skyblue;
+      display: flex;
+    }
+    #root>div>div:nth-child(2){
+      width: 160px;
+      display: flex;
+      flex-wrap: wrap;
+    }
+    #menu{
+      width: 80%;
+      height: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      align-items:center;
+      border-right: 1px black solid;
+    }
+    #menu>div{
+      width: 170px;
+      height: 170px;
+      font-size: 20px;
+      text-align: center;
+    }
+    #change{
+      width: 60px;
+      height: 50px;
+      background-color: #aaa;
+      font-size: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    #money {
+      width: 100px;
+      height: 50px;
+      font-size: 2em;
+      background-color: #000;
+      color:red;
+      text-align: right;
+    }
+    #input{
+      width: 160px;
+      height: 350px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+    }
+    #input>div{
+      width: 100px;
+      height: 50px;
+      background-color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+    }
+    #output{
+      width: 160px;
+      height: 200px;
+    }
+  </style>
+</head>
+<body>
+  <div id="root">
+    <div>
+      <div id="menu">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div>
+        <div id="change">환전?</div>
+        <div id="money"></div>
+        <div id="input">
+          <div>100</div>
+          <div>500</div>
+          <div>1000</div>
+          <div>5000</div>
+        </div>
+        <div id="output"></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    let menuList = [
+      {name: '츄파츕스', price:'200'},
+      {name: '껌', price:'500'},
+      {name: 'menu3', price:'2000'},
+      {name: 'menu4', price:'1000'},
+      {name: 'menu5', price:'2000'},
+      {name: 'menu6', price:'1500'},
+      {name: 'menu7', price:'3000'},
+      {name: 'menu8', price:'1000'},
+      {name: '비싼거', price:'5000'}
+    ]
+    console.log(menuList);
+    let box = [];
+
+    const menu = document.getElementById('menu').children;
+    const input = document.getElementById('input').children;
+    const output = document.getElementById('output');
+    const change = document.getElementById('change');
+    console.log(menu);
+    console.log(menu[1]);
+    console.log(input);
+    console.log(change);
+    const moneytext = document.getElementById('money');
+    let money = 3000;
+
+    output.style.borderTop = '1px black solid';
+    
+    function moneyFunction(){
+      moneytext.textContent = money;
+      for(i=0;i<menuList.length;i++){
+        able(i);
+      }
+    }
+    moneyFunction();
+
+    function able(number){
+      menu[number].style.backgroundColor = '#eee'
+      if(menuList[number].price<=money){
+        menu[number].style.backgroundColor = 'pink'
+      }
+    }
+
+    function out(){
+      let liItems = document.createElement('li');
+      liItems.textContent = box[box.length-1];
+      output.appendChild(liItems);
+      }
+
+    function click(number) {
+	    menu[number].addEventListener('click',function(){
+        if(menuList[number].price<=money){
+          money -= menuList[number].price;
+          box.push(menuList[number].name);
+          out();
+          moneyFunction();
+        } else {
+          alert('잔액부족');
+        }
+	    })
+    }
+
+    let moneyList = ['100','500','1000','5000'];
+
+    function plusMoney(number){
+      input[number].addEventListener('click',function(){
+        money += Math.floor(moneyList[number]);
+        moneyFunction();
+      })
+    }
+
+    for(i=0;i<moneyList.length;i++){
+      plusMoney(i);
+    }
+
+    for(i=0;i<menuList.length;i++){
+      menu[i].textContent = menuList[i].name +' : '+ menuList[i].price;
+      click(i);
+    }
+
+    function changeFunction(param){
+      if(money >= param){
+        while(money >= param){
+          money -= param;
+          box.push( param +'원');
+          out();
+          moneyFunction();
+        }
+      }
+    }
+
+    change.addEventListener('click',function(){
+      changeFunction(5000);
+      changeFunction(1000);
+      changeFunction(500);
+      changeFunction(100);
+    })
+
+
+
+
+  </script>
+</body>
+</html>

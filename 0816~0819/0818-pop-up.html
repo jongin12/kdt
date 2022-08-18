@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{
+      margin: 0px;
+      padding: 0px;
+      box-sizing: border-box;
+    }
+    #root{
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    div>div{
+      width: 50vw;
+      height: 60vh;
+      background-color: #ccc;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    div>div>div{
+      width: 80%;
+    }
+    div>div>div:nth-child(1){
+      height: 10%;
+    }
+    div>div>div:nth-child(2){
+      height: 60%;
+    }
+    div>div>div:nth-child(3){
+      width: 20%;
+      height: 10%;
+      background-color: #888;
+    }
+  </style>
+</head>
+<body>
+  <div id="root">
+    <div>
+      <div>
+        <h1>HELLO</h1>
+      </div>
+      <div>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae, dolore enim deserunt sint beatae harum repellendus optio corporis consequatur officia reprehenderit perferendis recusandae, possimus neque quam id blanditiis veniam quibusdam!</div>
+      <div>close</div>
+    </div>
+  </div>
+  <script>
+    const root = document.getElementById('root');
+    console.log(root);
+    const box = root.children[0];
+    console.log(box);
+    const close = root.children[0].children[2];
+    console.log(close);
+
+    close.addEventListener('click',function(){
+      box.style.display = 'none'
+    })
+
+
+
+  </script>
+</body>
+</html>
