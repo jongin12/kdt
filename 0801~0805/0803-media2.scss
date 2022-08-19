@@ -1,0 +1,105 @@
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+p{
+  font-family: 'Cute Font', cursive;
+}
+@mixin box($width,$height){
+  width: $width;
+  height: $height;
+}
+
+//* 모바일
+@media (max-width:767px) {
+  #root{@include box(100vw,100vh);}
+  header{
+    @include box(inherit,10vh);
+    background-color:salmon;
+  }
+  main{
+    @include box(inherit,90vh);
+    background-color:skyblue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    >div:nth-child(1){
+      @include box(90vw,55vh);
+      background-color:gray;
+      margin:5vw;
+    }
+    >div:nth-child(2){
+      @include box(0vw,0vh);
+      background-color:pink;
+      margin:0vw;
+    }
+    >div:nth-child(3){
+      @include box(90vw,20vh);
+      background-color:blue;
+      margin:5vw;
+    }
+  }
+}
+
+
+//* 태블릿
+@media (min-width: 768px) and (max-width: 1023px) {
+  #root{@include box(100vw,100vh);}
+  header{
+    @include box(inherit,10vh);
+    background-color:salmon;
+  }
+  main{
+    @include box(inherit,90vh);
+    background-color:skyblue;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    >div:nth-child(1){
+      @include box(35vw,30vh);
+      background-color:gray;
+      margin:3vw;
+    }
+    >div:nth-child(2){
+      @include box(35vw,40vh);
+      background-color:pink;
+      margin:3vw;
+    }
+    >div:nth-child(3){
+      @include box(50vw,80vh);
+      background-color:blue;
+      margin:3vw;
+    }
+  }
+}
+
+
+
+//* PC
+@media (min-width:1024px){
+  #root{@include box(100vw,100vh);}
+  header{
+    @include box(inherit,10vh);
+    background-color:salmon;
+  }
+  main{
+    @include box(inherit,90vh);
+    background-color:skyblue;
+    display: flex;
+    >div:nth-child(1){
+      @include box(15vw,90vh);
+      background-color:gray;
+    }
+    >div:nth-child(2){
+      @include box(35vw,80vh);
+      background-color:pink;
+      margin:3vw;
+    }
+    >div:nth-child(3){
+      @include box(40vw,80vh);
+      background-color:blue;
+      margin:3vw;
+    }
+  }
+}

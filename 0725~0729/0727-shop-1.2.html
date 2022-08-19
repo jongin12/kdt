@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>shop</title>
+  <style>
+    img {
+      width:100px;
+      height:100px;
+    }
+    .main1, .main2 {
+      border:1px solid black;
+      height:500px;
+      text-align:center;
+    }
+    .main1 {
+      width:500px;
+      float:left;
+    }
+    .main2 {
+      width:300px;
+      float:right;
+    }
+    .width-100 {width:100%;}
+    .width-50 {width:50%;}
+    .width-24 {width:24%;}
+    .height-30 {height:30%;}
+    .height-10 {height:10%;}
+    .height-400px {height:400px;}
+    .height-100px {height:100px;}
+    .height-80px {height:80px;}
+    .height-50px {height:50px;}
+    .bgc-blue {background-color:blue;}
+    .inline-block {display:inline-block;}
+    .margin-0 {margin:0px;}
+    .text-1 {font-size:30px;}
+    .border-bottom {border-bottom:1px solid gray}
+    .border-top {border-top:1px solid gray}
+    .flex {display:flex;}
+    .text-left {text-align:left;}
+    #delete {
+      width:70px;
+      height:48px;
+    }
+  </style>
+</head>
+<body style="width:805px; margin:0px;">
+  <div class="main1">
+    <div class="width-100 height-10 text-1 border-bottom">shop</div>
+    <div class="width-24 height-30 inline-block">
+      <img src="/diamond.png"> 5000$
+    </div>
+    <div class="width-24 height-30 inline-block">
+      <img src="/gold.jpg"> 1500$
+    </div>
+    <div class="width-24 height-30 inline-block">
+      <img src="/silver.png"> 1000$
+    </div>
+    <div class="width-24 height-30 inline-block">
+      <img src="/eme.png"> 2000$
+    </div>
+    <!--담기 버튼-->
+    <form>
+    <div class="width-24 height-10 inline-block">
+      <button id="diamond" type="button">담기</button>
+    </div>
+    <div class="width-24 height-10 inline-block">
+      <button id="gold" type="button">담기</button>
+    </div>
+    <div class="width-24 height-10 inline-block">
+      <button id="silver" type="button">담기</button>
+    </div>
+    <div class="width-24 height-10 inline-block">
+      <button id="emerald" type="button">담기</button>
+    </div>
+    </form>
+    <!--담기 버튼 끝-->
+  </div>
+  <div class="main2">
+    <div class="width-100 height-10 text-1 border-bottom">box</div>
+    <div>
+      <div class="width-100 height-400px"><br>
+        <p id="box"></p>
+      </div>
+      <div class="width-100 height-50px border-top flex">
+        <div class="width-50 height-50px text-left">
+          <button id='delete' type="button">비우기</button>
+        </div>
+        <div class="width-50 height-50px text-left"><p id="result">합계</p></div>
+        <!--합계값-->
+      </div>
+    </div>
+  </div>
+  <script>
+      const Diamond = document.getElementById('diamond');
+      const Gold = document.getElementById('gold');
+      const Silver = document.getElementById('silver');
+      const Emerald = document.getElementById('emerald');
+      
+      let dia = 0;
+      let gold = 0;
+      let silver = 0;
+      let emerald = 0;
+      let box = [];
+      let result = 0;
+
+      Diamond.addEventListener('click',function(){
+      dia++;
+      box1(dia,5000);
+      Result();
+      });
+      Gold.addEventListener('click',function(){
+      gold++;
+      box1(gold,1500);
+      Result()
+      });
+      Silver.addEventListener('click',function(){
+      silver++;
+      box1(silver,1000);
+      Result()
+      });
+      Emerald.addEventListener('click',function(){
+      emerald++;
+      box1(emerald,2000);
+      Result()
+      });
+    
+      function Result(){
+        result = dia*5000 + gold*1500 +silver*1000+emerald*2000;
+        document.getElementById('result').textContent = '합계 ' + result + '$'
+      };
+      function box1(a,b){
+        let price = a*b;
+        box.push(price)
+        document.getElementById('box').textContent = box
+      };
+  </script>
+</body>
+</html>

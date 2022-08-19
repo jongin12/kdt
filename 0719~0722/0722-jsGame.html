@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+<head>
+<title>template</title>
+</head>
+<body>
+<script>
+  var enemy=100;
+  var attack;
+  var count=0;
+
+  window.alert('대전시작!');
+  while(enemy>0){
+    attack=Math.floor((Math.random()*5)+1)*5;
+    console.log('몬스터에게'+attack+'의 피해를 입혔다!');
+    enemy=enemy-attack;
+    if(enemy<0){
+      enemy = 0
+    }
+    console.log("남은체력:"+enemy);
+    count++;
+  }
+  console.log('몬스터를' +count+ '회 만에 물리쳤다!');
+</script>
+</body>
+</html>

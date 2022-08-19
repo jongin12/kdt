@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <select id='selectbox' onchange="select()">
+    <option value="none" selected hidden>선택</option>
+    <option value="all">all</option>
+    <option value="hot">hot</option>
+    <option value="ice">ice</option>
+  </select>
+  <div></div>
+  <script>
+    
+    const selectbox = document.getElementById('selectbox')
+    const selectmenu = document.body.children[1];
+
+    let test = {//name, hot, ice, price
+        greentea : {
+        name : '녹차',
+        hot : true,
+        ice : false,
+        price : '2500',
+      },
+        lemonade : {
+        name : '레몬에이드',
+        hot : false,
+        ice : true,
+        price : '3500',
+      },
+        americano : {
+        name : '아메리카노',
+        hot : true,
+        ice : true,
+        price : '2000',
+      },
+        vanilaLatte :{
+          name : '바닐라라떼',
+          hot : true,
+          ice : true,
+          price : '3200',
+      },
+        CaramelMacchiato :{
+          name : '카라멜마끼아또',
+          hot : true,
+          ice : true,
+          price : '3500',
+      },
+        peachIcetea :{
+          name : '복숭아 아이스티',
+          hot : false,
+          ice : true,
+          price : '3000',
+      }
+    }
+
+    function select(){
+      var selecttext = selectbox.options[selectbox.selectedIndex].value;
+      selectmenu.innerHTML = ''
+      if(selecttext === 'all'){
+        for(let key in test){
+          let li = document.createElement('li');
+          li.textContent = test[key].name;
+          selectmenu.appendChild(li);
+        }
+      } else if(selecttext === 'hot'){
+        for(let key in test){
+          if(test[key].hot === true){
+            let li = document.createElement('li');
+            li.textContent = test[key].name;
+            selectmenu.appendChild(li);
+          }
+        }
+      } else if(selecttext === 'ice'){
+        for(let key in test){
+          if(test[key].ice === true){
+            let li = document.createElement('li');
+            li.textContent = test[key].name;
+            selectmenu.appendChild(li);
+          }
+        }
+      }
+    }
+
+
+
+
+
+
+
+
+
+/*
+    for(i=0;i<coffee.length;i++){
+      if(coffee[i].hot === true){
+        console.log(coffee[i].name)
+      }
+    }//뜨거운 음료
+
+    for(i=0;i<coffee.length;i++){
+      if(coffee[i].price <= 3000){
+        console.log(coffee[i].name +':'+ coffee[i].price +'원')
+      }
+    }//3000원 이하의 음료
+
+    let americano = {
+      name : '아메리카노',
+      hot : true,
+      ice : true,
+      price : '2000',
+    }
+    let vanilaLatte ={
+      name : '바닐라라떼',
+      hot : true,
+      ice : true,
+      price : '3200',
+    }
+    let CaramelMacchiato ={
+      name : '카라멜마끼아또',
+      hot : true,
+      ice : true,
+      price : '3500',
+    }
+    let peachIcetea ={
+      name : '복숭아 아이스티',
+      hot : false,
+      ice : true,
+      price : '3000',
+    }
+    let lemonade ={
+      name : '레몬에이드',
+      hot : false,
+      ice : true,
+      price : '3500',
+    }
+    let greentea ={
+      name : '녹차',
+      hot : true,
+      ice : false,
+      price : '2500',
+    }
+    let coffee =[americano,vanilaLatte,CaramelMacchiato,peachIcetea,lemonade,greentea];
+
+        for(i=0;i<test.length;i++){
+      let li = document.createElement('li');
+      li.textContent = test.i.name;
+      menu.appendChild(li);
+    }
+*/
+  </script>
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>shop</title>
+  <style>
+    img {
+      width:100px;
+      height:100px;
+    }
+    .main1, .main2 {
+      border:1px solid black;
+      height:500px;
+      text-align:center;
+    }
+    .main1 {
+      width:500px;
+      float:left;
+    }
+    .main2 {
+      width:300px;
+      float:right;
+    }
+    .width-100 {width:100%;}
+    .width-50 {width:50%;}
+    .width-24 {width:24%;}
+    .height-30 {height:30%;}
+    .height-10 {height:10%;}
+    .height-400px {height:400px;}
+    .height-100px {height:100px;}
+    .height-80px {height:80px;}
+    .height-50px {height:50px;}
+    .bgc-blue {background-color:blue;}
+    .inline-block {display:inline-block;}
+    .margin-0 {margin:0px;}
+    .text-1 {font-size:30px;}
+    .border-bottom {border-bottom:1px solid gray}
+    .border-top {border-top:1px solid gray}
+    .flex {display:flex;}
+    .text-left {text-align:left;}
+    #delete {
+      width:70px;
+      height:48px;
+    }
+  </style>
+</head>
+<body style="width:805px; margin:0px;">
+  <div class="main1">
+    <div class="width-100 height-10 text-1 border-bottom">shop</div>
+    <div class="width-24 height-30 inline-block">
+      <img src="/diamond.png"> 5000$
+    </div>
+    <div class="width-24 height-30 inline-block">
+      <img src="/gold.jpg"> 1500$
+    </div>
+    <div class="width-24 height-30 inline-block">
+      <img src="/silver.png"> 1000$
+    </div>
+    <div class="width-24 height-30 inline-block">
+      <img src="/eme.png"> 2000$
+    </div>
+    <!--담기 버튼-->
+    <div class="width-24 height-10 inline-block">
+      <button type="button" value="" name="diamond" onclick="buyDiamond()">담기</button>
+    </div>
+    <div class="width-24 height-10 inline-block">
+      <button type="button" value="" name="gold" onclick="buyGold()">담기</button>
+    </div>
+    <div class="width-24 height-10 inline-block">
+      <button type="button" value="" name="silver" onclick="buySilver()">담기</button>
+    </div>
+    <div class="width-24 height-10 inline-block">
+      <button type="button" value="" name="emerald"onclick="buyEmerald()">담기</button>
+    </div>
+    <!--담기 버튼 끝-->
+  </div>
+  <div class="main2">
+    <div class="width-100 height-10 text-1 border-bottom">box</div>
+    <div>
+      <div class="width-100 height-400px"><br>
+        <p id="box"></p>
+        <p id="DiaNum"></p>
+        <p id="GoldNum"></p>
+        <p id="SilNum"></p>
+        <p id="EmeNum"></p>
+      </div>
+      <div class="width-100 height-50px border-top flex">
+        <div class="width-50 height-50px text-left">
+          <button type="button" value="" id='delete' name="delete" onclick="boxDelete()">비우기</button>
+        </div>
+        <div class="width-50 height-50px text-left"><p id="result">합계</p></div>
+        <!--합계값-->
+      </div>
+    </div>
+  </div>
+  <script>
+    const item = [5000,1500,1000,2000]
+    let a = [0,0,0,0]
+    var a1 = 0;
+    var a2 = 0;
+    var a3 = 0;
+    let a4 = 0;
+    var result =0;
+    function buyDiamond() {
+      a1 = a1 + 1 ;
+      result = a1*5000+a2*1500+a3*1000+a4*2000;
+      document.getElementById('DiaNum').textContent = 'Diamond '+a1+'개 5000x'+a1+'='+a1*5000;
+      document.getElementById('result').textContent = '합계 ' + result + '$'; result + '$';
+    }
+    function buyGold() {
+      a2 = a2 + 1 ;
+      result = a1*5000+a2*1500+a3*1000+a4*2000;
+      document.getElementById('GoldNum').textContent = 'Gold '+a2+'개 1500x'+a2+'='+a2*1500;
+      document.getElementById('result').textContent = '합계 ' + result + '$'; result + '$';
+    }
+    function buySilver() {
+      a3 = a3 + 1 ;
+      result = a1*5000+a2*1500+a3*1000+a4*2000;
+      document.getElementById('SilNum').textContent = 'Silver '+a3+'개 1000x'+a3+'='+a3*1000;
+      document.getElementById('result').textContent = '합계 ' + result + '$'; result + '$';
+    }
+    function buyEmerald() {
+      a4 = a4 + 1 ;
+      result = a1*5000+a2*1500+a3*1000+a4*2000;
+      document.getElementById('EmeNum').textContent = 'Emerald '+a4+'개 2000x'+a4+'='+a4*2000;
+      document.getElementById('result').textContent = '합계 ' + result + '$';
+    }
+    function Buy() {
+      a[''] = a[''] + 1;
+      document.getElementById('Item').textContent = a
+    }
+    function result() {
+      
+    }
+    function boxDelete() {
+      a1 = 0;
+      a2 = 0;
+      a3 = 0;
+      a4 = 0;
+      document.getElementById('result').textContent ='합계'
+      document.getElementById('DiaNum').textContent =''
+      document.getElementById('GoldNum').textContent =''
+      document.getElementById('SilNum').textContent =''
+      document.getElementById('EmeNum').textContent =''
+    }
+  </script>
+</body>
+</html>

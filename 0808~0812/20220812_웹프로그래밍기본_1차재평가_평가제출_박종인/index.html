@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style.css">
+  <title>Document</title>
+</head>
+<body>
+  <div id="root">
+    <aside>
+      <div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </aside>
+    <div>
+      <header><!--헤더 -->
+        <nav>WAVER</nav>
+        <div>Happy</div>
+      </header>
+      
+      <main><!--로그인 창-->
+        <div class="login-box">
+          <div>
+            <div>ID 로그인</div>
+            <div>일회용 번호</div>
+          </div>
+          <div>
+            <div>
+              <div>
+                <input type="text" placeholder="ID">
+                <input type="password" placeholder="PASSWORD">
+              </div>
+              <div>
+                Forgot Password?
+              </div>
+              <div>
+                <button>로그인</button>
+                <div>
+                  IP Security
+                  <div id="securityButton">
+                    <div id="securityCircle"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div><!--증시,날씨 칸-->
+          <div>증시</div>
+          <div>KOSDAQ ■ 203332.124</div>
+          <div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        </div>
+        <div>
+          <div>날씨</div>
+          <div>비 온뒤 땅이 굳을 예정</div>
+          <div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        </div>
+      </main>
+      
+      <footer><!--뉴스 칸-->
+        <div>
+          <div>뉴스</div>
+          <div>FIGMA</div>
+          <div>
+            <div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+          <div>
+            <div>충격 속보</div>
+            <div>></div>
+            <div><p>피그마</p>, 결국 쓸모 있는 것으로 밝혀져</div>
+          </div>
+          <div>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita dolores provident quidem ad laudantium recusandae quo cum optio quas, totam quasi, beatae iure vitae cupiditate laborum eveniet est veniam dignissimos.
+          </div>
+        </div>
+        <div>
+          <div>
+            <div>
+              <div>Creators</div>
+              <div><div></div></div>
+              <div>크리에이터</div>
+              <div>스쿨비즈니스</div>
+              <div></div>
+            </div>
+            <div>
+              <div>Partners</div>
+              <div><div></div></div>
+              <div>SME 풀케어 시스템</div>
+              <div>비즈니스</div>
+              <div>스토어 개설</div>
+            </div>
+            <div>
+              <div>Developers</div>
+              <div><div></div></div>
+              <div>웨이버 개발자 센터</div>
+              <div>Open API</div>
+              <div></div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+  <script>
+    const securityButton = document.getElementById('securityButton')
+    const securityCircle = document.getElementById('securityCircle')
+    let IP = 1;
+
+    securityButton.addEventListener('click',function(){
+      if(IP == 1){
+      securityButton.style.backgroundColor = '#DAE1E6'
+      securityCircle.style.left = '-13px'
+      IP = 0;
+    } else{
+      securityButton.style.backgroundColor = '#19CE60'
+      securityCircle.style.left = '13px'
+      IP = 1;
+    }
+    })
+  </script>
+</body>
+</html>

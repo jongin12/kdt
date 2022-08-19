@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <p>
+    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione cumque nulla quaerat, nam perspiciatis saepe vel nostrum suscipit? Autem temporibus incidunt odit dolor ab perspiciatis inventore explicabo nemo dolores repellendus.
+    Consequuntur tenetur repellendus, ullam voluptates quis praesentium dolore libero eos alias? Pariatur excepturi ipsa sunt repellendus atque similique neque officia officiis possimus. Harum aspernatur natus nobis corporis enim nulla odio.
+    Molestiae, accusamus nihil. Voluptatum obcaecati soluta laboriosam tempore sunt quas voluptas, eum in est id dignissimos nulla autem velit consequatur sequi. Dicta expedita sed vel similique. Eum labore sequi laboriosam?
+    Numquam, maxime. Officia earum ullam aliquam at cumque culpa quos ducimus dolore? Eius sit dolorum accusamus laborum nesciunt veniam et a, voluptatum maxime saepe corporis qui, delectus exercitationem neque totam.
+    Excepturi blanditiis corrupti doloremque? Adipisci a maiores illum minus ex, molestias iste numquam ut repellendus animi obcaecati vel, sapiente nemo libero possimus in repudiandae blanditiis soluta. Nam animi maxime iure!
+  </p>
+  <script>
+
+    const p = document.body.children[0].textContent;
+    const pp = p.toUpperCase()
+    let inspactData = {};
+    
+    let count = 0;
+    for(i=0;i<pp.length;i++){
+      if(pp[i]==='A'){
+        count++
+      }
+      inspactData.A = count;
+    }
+    
+    count = 0;
+    for(i=0;i<pp.length;i++){
+      if(pp.charAt(i)==='E'){
+        count++
+      }
+      inspactData.E = count;
+    }
+    //이걸 함수로 만들어서 모든 알파벳의 개수를 바로 알수는 없을까??
+    
+    function find(asdf){
+      let count = 0;
+      for(i=0;i<pp.length;i++){
+        if(pp.charAt(i) === asdf){
+          count++
+        }
+      }
+      inspactData[asdf] = count;
+    }//대문자와 소문자가 구별되어서 정확한 개수가 안세어짐
+    //-> p의 모든 text를 대문자로 만든 후(pp) 검사
+    
+    find('B');
+    find('?');
+
+    const arr = Array.from({ length: 26 }, (v, i) => String.fromCharCode(i + 65));
+    console.log(arr)
+    
+    console.dir(window.document);
+    console.log(window.document);
+    
+    console.log(inspactData);
+
+  </script>
+</body>
+</html>

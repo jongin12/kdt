@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    let studentList = [
+      "강예훈",
+      "김성현",
+      "류주완",
+      "마근원",
+      "문예찬",
+      "박종인",
+      "박재형",
+      "송형주",
+      "양상희",
+      "원두진",
+      "유민호",
+      "이상호",
+      "이소영",
+      "이은수",
+      "정동욱",
+      "정윤환",
+      "정정원",
+      "지영빈",
+      "한용준",
+      "황초영",
+      "김근수",
+      "김승현",
+      "김지애",
+      "전형민",
+      "정연주",
+      "이아연",
+      "최화연",
+      "한가람"
+    ]
+
+    function find(name){
+      for(i=0;i<studentList.length;i++){
+      if(studentList[i] === name){
+        console.log(name+'은 '+i+'번째입니다.');
+        }
+      }
+    }
+
+    let count = 0;
+    function findFirst(park){
+      for(i=0;i<studentList.length;i++){
+        if(studentList[i].charAt(0) === park){
+          count++;
+        }
+      }
+      console.log(park+'씨는 '+count+'명입니다.');
+      count = 0;
+    }
+
+    findFirst('박')//박씨는 2명입니다.
+    
+    findFirst('김')
+
+    findFirst('이')
+    
+    find('박종인')//5번째
+    
+    studentList[5] = '박종이'//5번째 사람이름 변경
+
+    studentList.unshift('공욱재')//맨 앞에 '공욱재' 추가
+
+    console.log(studentList[0])//첫번째사람 표시
+
+    studentList.push('홍길동')//맨 뒤에 '홍길동' 추가
+    
+    console.log(studentList[studentList.length-1])//마지막사람 표시
+    
+    //studentList.shift();//첫번째사람 제거
+    
+    //studentList.pop();//마지막사람 제거
+
+    //studentList.splice(7,2);//7번째부터 2개의 요소를 제거
+
+    //studentList.splice(10,2,['ㅇㅇㅇ'],['ㅁㅁㅁ']);
+    //10번째부터 2개의 요소를 제거하고 그자리에 다른요소 추가
+
+    delete studentList[3];
+    //delete로 배열을 삭제하면 요소는 값만 사라진다(undefined)
+
+    studentList[35] = 'ㅇㅅㅇ'
+    //그냥 추가하면 사이의 값은 비어있다(undefined)
+
+    studentList[30] = 'ㅂㅂㅂ';//빈 값에 그대로 추가
+
+    for(i=0;i<studentList.length;i++){
+      let list = document.createElement('li');
+      list.textContent = studentList[i];
+      document.body.appendChild(list);
+    }
+
+
+
+
+
+
+  </script>
+</body>
+
+</html>

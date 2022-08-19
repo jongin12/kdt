@@ -1,0 +1,754 @@
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
+
+#root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#root > aside {
+  width: 10vw;
+  height: 100%;
+  background-color: #19CE60;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  z-index: 10;
+}
+#root > aside > div {
+  width: 100%;
+  height: 20%;
+  background-color: transparent;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  bottom: 30%;
+}
+#root > aside > div > div {
+  width: 15px;
+  height: 15px;
+  background-color: #FFF7E1;
+  border-radius: 10.5px;
+}
+#root > div {
+  width: 90vw;
+  height: 100%;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#root > div header {
+  width: 326px;
+  height: 36px;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  position: absolute;
+  top: 89px;
+}
+#root > div header > nav {
+  font-size: 32px;
+  line-height: 38px;
+  font-weight: 800;
+  color: #19CE60;
+}
+#root > div header div {
+  width: 58px;
+  height: 20px;
+  background-color: #19CE60;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 10px;
+  line-height: 12px;
+  font-weight: 600;
+  color: #F7F9FA;
+  border-radius: 8px;
+  position: absolute;
+  right: -5px;
+}
+#root > div main {
+  width: 326px;
+  height: 350px;
+  background-color: transparent;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  position: absolute;
+  top: 145px;
+}
+#root > div main > div:nth-child(2) {
+  width: 100%;
+  height: 60px;
+  background-color: #19CE60;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 2;
+  border-radius: 5px;
+  color: #F7F9FA;
+  box-shadow: 3px 3px 3px 3px rgba(25, 25, 25, 0.1);
+}
+#root > div main > div:nth-child(2) > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#root > div main > div:nth-child(2) > div:nth-child(1) {
+  width: 60px;
+  height: 100%;
+  background-color: transparent;
+  font-size: 12px;
+  line-height: 12px;
+  font-weight: 600;
+}
+#root > div main > div:nth-child(2) > div:nth-child(2) {
+  width: 200px;
+  height: 100%;
+  background-color: transparent;
+  font-size: 10px;
+  line-height: 12px;
+  font-weight: 400;
+}
+#root > div main > div:nth-child(2) > div:nth-child(3) {
+  width: 60px;
+  height: 100%;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+}
+#root > div main > div:nth-child(2) > div:nth-child(3) > div {
+  height: 3px;
+  background-color: #19CE60;
+  border-radius: 2.5px;
+  margin: 2.5px;
+}
+#root > div main > div:nth-child(2) > div:nth-child(3) > div:nth-child(1) {
+  width: 25px;
+}
+#root > div main > div:nth-child(2) > div:nth-child(3) > div:nth-child(2) {
+  width: 38px;
+}
+#root > div main > div:nth-child(2) > div:nth-child(3) > div:nth-child(3) {
+  width: 30px;
+}
+#root > div main > div:nth-child(3) {
+  width: 100%;
+  height: 60px;
+  background-color: #F7F9FA;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 5px;
+  color: #122023;
+  box-shadow: 3px 3px 3px 3px rgba(25, 25, 25, 0.1);
+}
+#root > div main > div:nth-child(3) > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#root > div main > div:nth-child(3) > div:nth-child(1) {
+  width: 60px;
+  height: 100%;
+  background-color: transparent;
+  font-size: 12px;
+  line-height: 12px;
+  font-weight: 600;
+}
+#root > div main > div:nth-child(3) > div:nth-child(2) {
+  width: 200px;
+  height: 100%;
+  background-color: transparent;
+  font-size: 10px;
+  line-height: 12px;
+  font-weight: 400;
+}
+#root > div main > div:nth-child(3) > div:nth-child(3) {
+  width: 60px;
+  height: 100%;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+}
+#root > div main > div:nth-child(3) > div:nth-child(3) > div {
+  height: 3px;
+  background-color: #19CE60;
+  border-radius: 2.5px;
+  margin: 2.5px;
+}
+#root > div main > div:nth-child(3) > div:nth-child(3) > div:nth-child(1) {
+  width: 25px;
+}
+#root > div main > div:nth-child(3) > div:nth-child(3) > div:nth-child(2) {
+  width: 38px;
+}
+#root > div main > div:nth-child(3) > div:nth-child(3) > div:nth-child(3) {
+  width: 30px;
+}
+#root > div footer {
+  width: 326px;
+  height: 420px;
+  background-color: transparent;
+  position: absolute;
+  top: 500px;
+  z-index: 2;
+}
+#root > div footer > div:nth-child(1) {
+  width: 100%;
+  height: 348px;
+  background-color: #F7F9FA;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 5px;
+  box-shadow: 3px 3px 3px 3px rgba(25, 25, 25, 0.1);
+  z-index: 2;
+}
+#root > div footer > div:nth-child(1) > div:nth-child(1) {
+  width: 90%;
+  height: 66px;
+  background-color: transparent;
+  font-size: 12px;
+  line-height: 14px;
+  font-weight: 600;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+#root > div footer > div:nth-child(1) > div:nth-child(2) {
+  width: 90%;
+  height: 167px;
+  background-color: #19CE60;
+  font-size: 48px;
+  line-height: 58px;
+  font-weight: 400;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #F7F9FA;
+  border-radius: 5px;
+}
+#root > div footer > div:nth-child(1) > div:nth-child(3) {
+  width: 90%;
+  height: 41px;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#root > div footer > div:nth-child(1) > div:nth-child(3) > div {
+  width: 51px;
+  height: 12px;
+  background-color: transparent;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#root > div footer > div:nth-child(1) > div:nth-child(3) > div > div {
+  width: 12px;
+  height: 12px;
+  background-color: #DAE1E6;
+}
+#root > div footer > div:nth-child(1) > div:nth-child(3) > div > div:nth-child(1) {
+  background-color: #19CE60;
+}
+#root > div footer > div:nth-child(1) > div:nth-child(4) {
+  width: 90%;
+  height: 30px;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-items: center;
+}
+#root > div footer > div:nth-child(1) > div:nth-child(4) > div:nth-child(1) {
+  width: 90px;
+  height: 100%;
+  background-color: transparent;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 400;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+#root > div footer > div:nth-child(1) > div:nth-child(4) > div:nth-child(2) {
+  width: 25px;
+  height: 100%;
+  background-color: transparent;
+  font-size: 30px;
+  line-height: 20px;
+  font-weight: 900;
+  color: #37A0F4;
+}
+#root > div footer > div:nth-child(1) > div:nth-child(4) > div:nth-child(3) {
+  width: 300px;
+  height: 100%;
+  background-color: transparent;
+  font-size: 12px;
+  line-height: 14px;
+  font-weight: 400;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+#root > div footer > div:nth-child(1) > div:nth-child(4) > div:nth-child(3) > p {
+  color: #19CE60;
+}
+#root > div footer > div:nth-child(1) > div:nth-child(5) {
+  width: 90%;
+  height: 81px;
+  background-color: transparent;
+  font-size: 10px;
+  line-height: 12px;
+  font-weight: 400;
+}
+#root > div footer > div:nth-child(2) {
+  width: 100%;
+  height: 231px;
+  background-color: #F7F9FA;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  border-radius: 5px;
+  box-shadow: 3px 3px 3px 3px rgba(25, 25, 25, 0.1);
+  z-index: -1;
+}
+#root > div footer > div:nth-child(2) > div {
+  width: 430px;
+  height: 94px;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+#root > div footer > div:nth-child(2) > div > div {
+  width: 100%;
+  height: 24px;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#root > div footer > div:nth-child(2) > div > div > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#root > div footer > div:nth-child(2) > div > div > div:nth-child(1) {
+  width: 93px;
+  height: 100%;
+  background-color: transparent;
+  font-size: 12px;
+  line-height: 14px;
+  font-weight: 600;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+#root > div footer > div:nth-child(2) > div > div > div:nth-child(2) {
+  width: 34px;
+  height: 14px;
+  background-color: transparent;
+}
+#root > div footer > div:nth-child(2) > div > div > div:nth-child(2) > div {
+  width: 4px;
+  height: 14px;
+  background-color: #19CE60;
+  border-radius: 2px;
+}
+#root > div footer > div:nth-child(2) > div > div > div:nth-child(3) {
+  width: 101px;
+  height: 100%;
+  background-color: transparent;
+  font-size: 10px;
+  line-height: 10px;
+  font-weight: 400;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+#root > div footer > div:nth-child(2) > div > div > div:nth-child(4) {
+  width: 101px;
+  height: 100%;
+  background-color: transparent;
+  font-size: 10px;
+  line-height: 10px;
+  font-weight: 400;
+}
+#root > div footer > div:nth-child(2) > div > div > div:nth-child(5) {
+  width: 101px;
+  height: 100%;
+  background-color: transparent;
+  font-size: 10px;
+  line-height: 10px;
+  font-weight: 400;
+}
+
+.login-box {
+  width: 486px;
+  height: 280px;
+  background-color: transparent;
+  border-radius: 0px 5px 0px 0px;
+  box-shadow: 3px 3px 3px 3px rgba(25, 25, 25, 0.1);
+}
+.login-box > div:nth-child(1) {
+  width: 100%;
+  height: 20%;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 10px;
+  line-height: 12px;
+  font-weight: 500;
+  text-align: center;
+  align-items: center;
+}
+.login-box > div:nth-child(1) > div:nth-child(1) {
+  width: 50%;
+  height: 100%;
+  background-color: #19CE60;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px 0px 0px 0px;
+  color: #F7F9FA;
+}
+.login-box > div:nth-child(1) > div:nth-child(2) {
+  width: 50%;
+  height: 100%;
+  background-color: #DAE1E6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0px 5px 0px 0px;
+}
+.login-box > div:nth-child(2) {
+  width: 100%;
+  height: 80%;
+  background-color: #F7F9FA;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.login-box > div:nth-child(2) > div {
+  width: 289px;
+  height: 130px;
+  background-color: transparent;
+}
+.login-box > div:nth-child(2) > div > div:nth-child(1) {
+  width: 100%;
+  height: 71px;
+  background-color: transparent;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+.login-box > div:nth-child(2) > div > div:nth-child(1) input {
+  width: 100%;
+  height: 32px;
+  background-color: #DAE1E6;
+  font-size: 10px;
+  line-height: 12px;
+  font-weight: 400;
+  border: 0px;
+  padding: 10px;
+  border-radius: 5px;
+  color: #122023;
+}
+.login-box > div:nth-child(2) > div > div:nth-child(1) input::-moz-placeholder {
+  color: #F7F9FA;
+}
+.login-box > div:nth-child(2) > div > div:nth-child(1) input:-ms-input-placeholder {
+  color: #F7F9FA;
+}
+.login-box > div:nth-child(2) > div > div:nth-child(1) input::placeholder {
+  color: #F7F9FA;
+}
+.login-box > div:nth-child(2) > div > div:nth-child(2) {
+  width: 100%;
+  height: 23px;
+  background-color: transparent;
+  font-size: 10px;
+  line-height: 10px;
+  font-weight: 400;
+  text-align: right;
+  color: #19CE60;
+}
+.login-box > div:nth-child(2) > div > div:nth-child(3) {
+  width: 100%;
+  height: 36px;
+  background-color: transparent;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.login-box > div:nth-child(2) > div > div:nth-child(3) > button {
+  width: 190px;
+  height: 100%;
+  background-color: #19CE60;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 0px;
+  border-radius: 5px;
+  color: #F7F9FA;
+}
+.login-box > div:nth-child(2) > div > div:nth-child(3) > div {
+  width: 92px;
+  height: 14px;
+  background-color: transparent;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 10px;
+  line-height: 10px;
+  font-weight: 400;
+}
+.login-box > div:nth-child(2) > div > div:nth-child(3) > div > div {
+  width: 40px;
+  height: 14px;
+  background-color: #19CE60;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+}
+.login-box > div:nth-child(2) > div > div:nth-child(3) > div > div > div {
+  width: 10px;
+  height: 10px;
+  background-color: #F7F9FA;
+  border-radius: 5px;
+  position: relative;
+  left: 13px;
+}
+
+@media (max-width: 768px) {
+  #root {
+    width: 100vw;
+    height: 926px;
+    background-color: transparent;
+  }
+  #root > div > main > div:nth-child(2) {
+    background-color: #F7F9FA;
+    position: relative;
+    top: 15px;
+    color: #122023;
+  }
+  #root > div > main > div:nth-child(3) {
+    position: relative;
+    bottom: 20px;
+    left: 20px;
+    transition: 0.5s;
+  }
+  #root > div > main > div:nth-child(3):hover {
+    bottom: 25px;
+    z-index: 3;
+    transition: 0.5s;
+  }
+  #root > div > footer > div:nth-child(1) > div:nth-child(3) {
+    justify-content: flex-start;
+  }
+  #root > div > footer > div:nth-child(1) > div:nth-child(4) div:nth-child(1) {
+    font-size: 14px;
+  }
+  #root > div > footer > div:nth-child(2) {
+    position: relative;
+    left: 10px;
+    bottom: 210px;
+    transition: 0.5s;
+  }
+  #root > div > footer > div:nth-child(2) > div {
+    width: 300px;
+    height: 66px;
+    background-color: transparent;
+  }
+  #root > div > footer > div:nth-child(2) > div > div {
+    width: 100%;
+    height: 22px;
+    background-color: transparent;
+  }
+  #root > div > footer > div:nth-child(2) > div > div > div:nth-child(1) {
+    width: 95px;
+    height: 100%;
+    background-color: transparent;
+    font-size: 11px;
+    line-height: 14px;
+    font-weight: 600;
+  }
+  #root > div > footer > div:nth-child(2) > div > div > div:nth-child(2) {
+    width: 15px;
+    height: 100%;
+    background-color: transparent;
+  }
+  #root > div > footer > div:nth-child(2) > div > div > div:nth-child(3) {
+    width: 135px;
+    height: 100%;
+    background-color: transparent;
+  }
+  #root > div > footer > div:nth-child(2):hover {
+    bottom: 160px;
+    transition: 0.5s;
+  }
+  .login-box {
+    width: 326px;
+    height: 188px;
+    background-color: transparent;
+  }
+}
+@media (min-width: 769px) and (max-width: 1200px) {
+  #root {
+    width: 100vw;
+    height: 1366px;
+    background-color: transparent;
+  }
+  #root > aside > div {
+    width: 100%;
+    height: 65%;
+    background-color: transparent;
+    top: 10%;
+  }
+  #root > div header {
+    top: 200px;
+  }
+  #root > div main {
+    width: 486px;
+    height: 488px;
+    background-color: transparent;
+    top: 305px;
+  }
+  #root > div main > div:nth-child(2) > div:nth-child(3) > div {
+    background-color: #F7F9FA;
+  }
+  #root > div footer {
+    width: 486px;
+    height: 500px;
+    background-color: transparent;
+    top: 828px;
+  }
+  #root > div footer > div:nth-child(1) {
+    width: 100%;
+    height: 385px;
+    background-color: #F7F9FA;
+  }
+  #root > div footer > div:nth-child(2) {
+    width: 100%;
+    height: 230px;
+    background-color: #F7F9FA;
+    position: relative;
+    bottom: 190px;
+    transition: 0.5s;
+  }
+  #root > div footer > div:nth-child(2):hover {
+    width: 100%;
+    height: 230px;
+    background-color: #F7F9FA;
+    position: relative;
+    bottom: 136px;
+    transition: 0.5s;
+  }
+}
+@media (min-width: 1201px) {
+  #root {
+    width: 100vw;
+    height: 1117px;
+    background-color: transparent;
+  }
+  #root > aside {
+    width: 5%;
+    height: 100%;
+    background-color: #19CE60;
+  }
+  #root > aside > div {
+    width: 100%;
+    height: 20%;
+    background-color: transparent;
+    position: relative;
+    top: 25%;
+  }
+  #root > aside > div > div {
+    width: 30px;
+    height: 30px;
+    background-color: #FFF7E1;
+    border-radius: 0px;
+  }
+  #root > div {
+    width: 95%;
+    height: 100%;
+    background-color: rgba(25, 206, 96, 0.2);
+    flex-direction: column;
+  }
+  #root > div header {
+    width: 225px;
+    height: 39px;
+    background-color: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    position: relative;
+    top: 95px;
+    right: 142.5px;
+  }
+  #root > div main {
+    width: 486px;
+    height: 488px;
+    background-color: transparent;
+    position: relative;
+    top: 125px;
+    right: 273px;
+  }
+  #root > div main > div:nth-child(2) > div:nth-child(3) > div {
+    background-color: #F7F9FA;
+  }
+  #root > div footer {
+    width: 486px;
+    height: 500px;
+    background-color: transparent;
+    position: relative;
+    top: -125px;
+    left: 273px;
+  }
+  #root > div footer > div:nth-child(1) {
+    width: 100%;
+    height: 385px;
+    background-color: #F7F9FA;
+  }
+  #root > div footer > div:nth-child(2) {
+    width: 100%;
+    height: 230px;
+    background-color: #F7F9FA;
+    position: relative;
+    bottom: 190px;
+    transition: 0.5s;
+  }
+  #root > div footer > div:nth-child(2):hover {
+    width: 100%;
+    height: 230px;
+    background-color: #F7F9FA;
+    position: relative;
+    bottom: 136px;
+    transition: 0.5s;
+  }
+}/*# sourceMappingURL=style.css.map */

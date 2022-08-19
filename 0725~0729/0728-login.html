@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+<head>
+  <style>
+    body > div {
+      width:900px;
+      height:600px;
+      display: flex;
+    }
+    p {
+      display:inline;
+    }
+    .flex{display:flex;}
+    .center{justify-content:center; align-items:center;}
+    .text-center{text-align: center;}
+    .text-right{text-align: right;}
+    .text-left{text-align: left;}
+    .float-right{float:right;}
+    .width-600px{width: 600px;}
+    .width-500px{width: 500px;}
+    .width-400px{width: 400px;}
+    .width-300px{width: 300px;}
+    .width-250px{width: 250px;}
+    .width-200px{width: 200px;}
+    .width-50px{width: 50px;}
+    .height-600px{height: 600px;}
+    .height-500px{height: 500px;}
+    .height-400px{height: 400px;}
+    .height-100px{height: 100px;}
+    .bgc-skyblue{background-color:skyblue;}
+    .bgc-salmon{background-color:salmon;}
+  </style>
+</head>
+<body>
+  <div>
+    <div class="width-500px height-600px flex center text-center bgc-skyblue">
+      <div class="width-500px height-500px">
+        <div class="width-500px height-100px">
+          <h1>회원가입</h1>
+        </div>
+        <div class="width-500px height-400px">
+          <div class="width-300px height-400px text-right">
+            아이디<input type="text" id="idtext"><br>
+            비밀번호<input type="password" id="pwtext1"><br>
+            비밀번호 확인<input type="password" id="pwtext2"><br>
+            <button id="button">가입</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="width-400px height-600px flex center text-center bgc-salmon">
+      <div class="width-300px height-500px">
+        <div class="width-300px height-100px">
+          <h1>로그인</h1>
+        </div>
+        <div class="width-300px height-400px flex">
+          <div class="width-250px height-100px text-right float-right">
+            아이디<input type="text" id="id"><br>
+            비밀번호<input type="password" id="pw"><br>
+          </div>
+          <div class="width-50px height-100px">  
+            <button id="button2">login</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const go = document.getElementById('button')
+    let storage = localStorage;
+
+    go.addEventListener('click',function(){
+      const idtext = document.getElementById('idtext').value;
+      const pwtext1 = document.getElementById('pwtext1').value;
+      const pwtext2 = document.getElementById('pwtext2').value;
+
+      if(idtext == "" || pwtext1=="" || pwtext2=="" ){
+        window.alert('내용을 입력해주세요.')
+      }else if(pwtext1 == pwtext2){
+        window.alert('회원가입 성공!')
+      }else{
+        window.alert('비밀번호 확인이 틀렸습니다.')
+      };
+    });
+
+    const id = document.getElementById('id')
+    const pw = document.getElementById('pw')
+    const login = document.getElementById('button2')
+
+    login.addEventListener('click',()=>{
+      console.log(id01);/*
+      if (id== id01) {
+        if (pw== pw01) {
+          window.alert('로그인 성공')
+        }
+        else {
+          alert('비밀번호 오류')
+        }
+      }
+      else{
+        alert('없는 계정입니다')
+      }*/
+    });
+
+
+  </script>
+</body>
+</html>

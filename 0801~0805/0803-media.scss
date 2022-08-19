@@ -1,0 +1,60 @@
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+@mixin box($width,$height){
+  width: $width;
+  height: $height;
+}
+
+div{background-color: gray;}
+
+//* 모바일
+@media (max-width:767px) {
+  main{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y:scroll;
+    width:100vw;
+  }
+  div{
+    @include box(80vw,80vw);
+    margin:5vw;
+  }
+}
+
+
+//* 태블릿
+@media (min-width: 768px)  and (max-width: 1023px) {
+  main{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    height:100vh;
+  }
+  div{
+    @include box(40vh,40vh);
+    margin:3vh;
+  }
+}
+
+
+
+//* PC
+@media (min-width:1024px){
+  main{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    overflow-y:scroll;
+    width:100vw;
+  }
+  div{
+    @include box(40vw,40vw);
+    margin:3vw;
+  }
+}

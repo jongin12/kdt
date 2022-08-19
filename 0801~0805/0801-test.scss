@@ -1,0 +1,7 @@
+$color : salmon;
+$ss:flex;
+
+div { 
+  background-color:$color;
+  display: $ss;
+}

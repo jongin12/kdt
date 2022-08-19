@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin:0px;
+    }
+    header, main, footer {
+      width:100vw;
+      box-sizing: border-box;
+    }
+    header {
+      height:50px;
+      background-color: #ccc;
+    }
+    main {
+      height:100vh;
+    }
+    aside{
+      height:inherit;
+      width:100px;
+      box-sizing: border-box;
+      border-right:1px solid #ccc;
+    }
+    .border-box {
+      border:1px black solid;
+    }
+    .flex {display:flex;}
+    .flex-column {flex-direction:column;}
+    .justify-content-center {justify-content:center;}
+    .justify-content-right {justify-content:right;}
+    .justify-content-space-between {justify-content:space-between;}
+    .align-items-center {align-items:center;}
+    .box {
+      margin:1%;
+      background-color:skyblue;
+      width:23%;
+      height:100px;
+      box-sizing: border-box;
+    }
+    .left {float:left;}
+    .bgc-salmon {background-color:salmon;}
+    .bgc-green {background-color:green;}
+    .height-100px {height:100px;}
+    .height-250px {height:250px;}
+    .height-800px {height:800px;}
+    .width-100px {width:100px;}
+    .width-90 {width:90%;}
+    .width-60 {width:60%;}
+    .width-40 {width:40%;}
+    .margin-5 {margin:5%;}
+  </style>
+</head>
+<body>
+  <header class="flex">
+    <div class="height-100px width-100px"></div>
+    <input type="text">
+    <input type="button" value="검색">
+  </header>
+  <main>
+    <aside class="left">
+    </aside>
+    <div class="flex">
+      <div class="height-100px">
+        <p></p>
+      </div>
+    </div>
+    <div class="flex justify-content-space-between justify-content-center">
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+    </div>
+    <div class="flex">
+      <div class="height-800px width-60 flex flex-column">
+        <div class="height-100px width-90 bgc-salmon margin-5"></div>
+        <div class="height-100px width-90 bgc-salmon margin-5"></div>
+        <div class="height-100px width-90 bgc-salmon margin-5"></div>
+        <div class="height-100px width-90 bgc-salmon margin-5"></div>
+        <div class="height-100px width-90 bgc-salmon margin-5"></div>
+      </div>
+      <div class="height-800px width-40">
+        <div class="height-250px width-90 bgc-green margin-5"></div>
+        <div class="height-250px width-90 bgc-green margin-5"></div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

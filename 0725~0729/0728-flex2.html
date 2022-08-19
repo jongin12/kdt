@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body > div {
+      width:500px;
+      height:800px;
+    }
+    .bgc-ddd { background-color:#ddd;}
+    .bgc-666 {background-color:#666;}
+    .flex{display:flex;}
+    .justify-content-center{justify-content:center;}
+    .justify-content-space-between{justify-content:space-between;}
+    .justify-content-space-around{justify-content:space-around;}
+    .justify-content-space-evenly{justify-content:space-evenly;}
+    .align-items-center {align-items:center;}
+    .width-400px{width:400px;}
+    .width-300px{width:300px;}
+    .width-100px{width:100px;}
+    .width-80px{width:80px;}
+    .height-300px{height:300px;}
+    .height-150px{height:150px;}
+    .height-100px{height:100px;}
+    .margin-15px{margin:15px;}
+    .text-white{color:white;}
+  </style>
+</head>
+<body>
+  <div class="bgc-ddd flex justify-content-center align-items-center">
+    <div class="width-400px height-300px">
+      <div class="flex width-400px height-150px justify-content-center align-items-center">
+        <div class="bgc-666 width-400px height-100px text-white">
+          flex
+        </div>
+      </div>
+      <div class="flex width-400px height-150px justify-content-space-between align-items-center">
+        <div class="bgc-666 width-80px height-100px text-white">
+          justify-content-space-between</div>
+        <div class="bgc-666 width-80px height-100px"></div>
+        <div class="bgc-666 width-80px height-100px"></div>
+      </div>
+      <div class="flex width-400px height-150px justify-content-space-evenly align-items-center">
+        <div class="bgc-666 width-80px height-100px text-white">
+          justify-content-space-evenly</div>
+        <div class="bgc-666 width-80px height-100px"></div>
+        <div class="bgc-666 width-80px height-100px"></div>
+      </div>
+      <div class="flex width-400px height-150px justify-content-space-around align-items-center">
+        <div class="bgc-666 width-80px height-100px text-white">
+          justify-content-space-around</div>
+        <div class="bgc-666 width-80px height-100px"></div>
+        <div class="bgc-666 width-80px height-100px"></div>
+      </div>
+    </div>  
+  </div>
+</body>
+</html>

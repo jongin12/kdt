@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <title>quiz</title>
+</head>
+<body>
+  <p id="id"></p>
+  <input type="text" id="answer">
+  <button id="button">확인</button>
+  <script>
+    const asdf = document.getElementById('id')
+    const answer = document.getElementById('answer')
+    const button = document.getElementById('button')
+
+    let random = Math.floor((Math.random()*62)+1);
+    console.log(random);
+    let random2 = random.toString(2);
+    console.log(random2);
+    asdf.innerHTML=random2;
+
+    button.addEventListener('click',function(){
+      let answer2 = answer.value;
+      if(answer2 == random){
+        window.alert('ㅇㅇ')
+        window.location.reload()
+      }
+      else{
+        window.alert('ㄴㄴ')
+      }
+    });
+  </script>
+</body>
+</html>

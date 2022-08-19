@@ -1,0 +1,530 @@
+*{
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
+
+$black-color:#122023;
+$sub-color:#FFF7E1;
+$white-color:#F7F9FA;
+$main-color:#19CE60;
+$gray-color:#DAE1E6;
+
+@mixin box ($width,$height,$bgc:transparent){
+  width: $width;
+  height: $height;
+  background-color: $bgc;
+}//div의 사이즈, 배경색은 설정하지않으면 투명색
+
+@mixin flex($justify-content:center,$align-items:center){
+  display: flex;
+  justify-content: $justify-content;
+  align-items: $align-items;
+}//display:flex, 설정하지않으면 둘다 center
+
+@mixin font($font-size,$line-height,$font-weight){
+  font-size: $font-size;
+  line-height:$line-height;
+  font-weight:$font-weight;
+}//글씨 크기,줄 높이,굵기
+
+
+#root{
+  @include flex;
+  >aside{//왼쪽에 고정되어있는 초록색 사이드바
+    @include box(10vw,100%,$main-color);
+    @include flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 10;
+    >div{//사이드바 점 묶음
+      @include box(100%,20%);
+      @include flex(space-between);
+      flex-direction: column;
+      position: relative;
+      bottom:30%;
+      >div{//사이드바 점
+        @include box(15px,15px,$sub-color);
+        border-radius: 10.5px;
+      }
+    }
+  }
+
+  >div{//아래 div는 사이드바 제외 전부를 포함하는 전체
+    @include box(90vw,100%);
+    @include flex;
+    header{//맨 위 WAVER과 Happy 부분
+      @include box(326px,36px);
+      @include flex(center,flex-end);
+      position: absolute;
+      top:89px;
+      >nav{
+        @include font(32px,38px,800);
+        color:$main-color;
+      }
+      div{
+        @include box(58px,20px,$main-color);
+        @include flex;
+        @include font(10px,12px,600);
+        color:$white-color;
+        border-radius: 8px;
+        position: absolute;
+        right: -5px;
+      }
+    }
+
+    main{//중앙 로그인창과 증시,날씨칸(로그인창은 class로 따로 기입되어있음)
+      @include box(326px,350px);
+      @include flex(space-between,center);
+      flex-direction: column;
+      position: absolute;
+      top:145px;
+      >div:nth-child(2){
+        @include box(100%,60px,$main-color);
+        @include flex(space-between,center);
+        z-index: 2;
+        border-radius: 5px;
+        color:$white-color;
+        box-shadow: 3px 3px 3px 3px rgba(25, 25, 25, 0.1);
+        >div{
+          @include flex(center,center);
+        }
+        >div:nth-child(1){
+          @include box(60px,100%);
+          @include font(12px,12px,600);
+        }
+        >div:nth-child(2){
+          @include box(200px,100%);
+          @include font(10px,12px,400);
+        }
+        >div:nth-child(3){
+          @include box(60px,100%);
+          @include flex(center,flex-start);
+          flex-direction: column;
+          >div{
+            height: 3px;
+            background-color:$main-color;
+            border-radius: 2.5px;
+            margin: 2.5px;
+          }
+          >div:nth-child(1){width: 25px;}
+          >div:nth-child(2){width: 38px;}
+          >div:nth-child(3){width: 30px;}
+        }
+      }
+      >div:nth-child(3){
+        @include box(100%,60px,$white-color);
+        @include flex(space-between,center);
+        border-radius: 5px;
+        color:$black-color;
+        box-shadow: 3px 3px 3px 3px rgba(25, 25, 25, 0.1);
+        >div{
+          @include flex(center,center);
+        }
+        >div:nth-child(1){
+          @include box(60px,100%);
+          @include font(12px,12px,600);
+        }
+        >div:nth-child(2){
+          @include box(200px,100%);
+          @include font(10px,12px,400);
+        }
+        >div:nth-child(3){
+          @include box(60px,100%);
+          @include flex(center,flex-start);
+          flex-direction: column;
+          >div{
+            height: 3px;
+            background-color:$main-color;
+            border-radius: 2.5px;
+            margin: 2.5px;
+          }
+          >div:nth-child(1){width: 25px;}
+          >div:nth-child(2){width: 38px;}
+          >div:nth-child(3){width: 30px;}
+        }
+      }
+    }
+
+    footer{//아래 뉴스칸 두개
+      @include box(326px,420px);
+      position: absolute;
+      top:500px;
+      z-index: 2;
+      >div:nth-child(1){//뉴스 칸
+        @include box(100%,348px,$white-color);
+        @include flex;
+        flex-direction: column;
+        border-radius: 5px;
+        box-shadow: 3px 3px 3px 3px rgba(25, 25, 25, 0.1);
+        z-index: 2;
+        >div:nth-child(1){
+          @include box(90%,66px);
+          @include font(12px,14px,600);
+          @include flex(flex-start,center);
+        }
+        >div:nth-child(2){
+          @include box(90%,167px,$main-color);
+          @include font(48px,58px,400);
+          @include flex;
+          color: $white-color;
+          border-radius: 5px;
+        }
+        >div:nth-child(3){
+          @include box(90%,41px);
+          @include flex;
+          >div{
+            @include box(51px,12px);
+            @include flex(space-between,center);
+            >div{
+              @include box(12px,12px,$gray-color);
+            }
+            >div:nth-child(1){
+              background-color: $main-color;
+            }
+          }
+        }
+        >div:nth-child(4){
+          @include box(90%,30px);
+          @include flex;
+          align-items: center;
+          >div:nth-child(1){
+            @include box(90px,100%);
+            @include font(16px,20px,400);
+            @include flex(flex-start,center);
+          }
+          >div:nth-child(2){
+            @include box(25px,100%);
+            @include font(30px,20px,900);
+            color:#37A0F4;
+          }
+          >div:nth-child(3){
+            @include box(300px,100%);
+            @include font(12px,14px,400);
+            @include flex(flex-start,center);
+            >p{
+              color:$main-color;
+            }
+          }
+        }
+        >div:nth-child(5){
+          @include box(90%,81px);
+          @include font(10px,12px,400);
+        }
+      }
+      >div:nth-child(2){//크리에이터 ~ 칸
+        @include box(100%,231px,$white-color);
+        @include flex(center,flex-end);
+        border-radius: 5px;
+        box-shadow: 3px 3px 3px 3px rgba(25, 25, 25, 0.1);
+        z-index: -1;
+        >div{
+          @include box(430px,94px);
+          @include flex;
+          flex-direction: column;
+          >div{
+            @include box(100%,24px);
+            @include flex;
+            >div{
+              @include flex;
+            }
+            >div:nth-child(1){
+              @include box(93px,100%);
+              @include font(12px,14px,600);
+              @include flex(flex-start,center);
+            }
+            >div:nth-child(2){
+              @include box(34px,14px);
+              >div{
+                @include box(4px,14px,$main-color);
+                border-radius: 2px;
+              }
+            }
+            >div:nth-child(3){
+              @include box(101px,100%);
+              @include font(10px,10px,400);
+              @include flex(flex-start,center);
+            }
+            >div:nth-child(4){
+              @include box(101px,100%);
+              @include font(10px,10px,400);
+            }
+            >div:nth-child(5){
+              @include box(101px,100%);
+              @include font(10px,10px,400);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+.login-box{//로그인 박스 class
+  @include box(486px,280px);
+  border-radius: 0px 5px 0px 0px;
+  box-shadow: 3px 3px 3px 3px rgba(25, 25, 25, 0.1);
+  >div:nth-child(1){//로그인 상단 버튼
+    @include box(100%,20%);
+    @include flex;
+    @include font(10px,12px,500);
+    text-align: center;
+    align-items: center;
+    >div:nth-child(1){
+      @include box(50%,100%,$main-color);
+      @include flex;
+      border-radius: 5px 0px 0px 0px;
+      color: $white-color;
+    }
+    >div:nth-child(2){
+      @include box(50%,100%,$gray-color);
+      @include flex;
+      border-radius: 0px 5px 0px 0px;
+    }
+  }
+  >div:nth-child(2){//로그인 메인
+    @include box(100%,80%,$white-color);
+    @include flex;
+    >div{//로그인 중앙 크기고정
+      @include box(289px,130px);
+      >div:nth-child(1){//ID, PASSWORD 입력창
+        @include box(100%,71px);
+        @include flex(space-between,center);
+        flex-direction: column;
+        input{
+          @include box(100%,32px,$gray-color);
+          @include font(10px,12px,400);
+          border:0px;
+          padding: 10px;
+          border-radius: 5px;
+          color:$black-color;
+        }
+        input::placeholder{
+          color:$white-color;
+        }
+      }
+      >div:nth-child(2){//Forgot Password?
+        @include box(100%,23px);
+        @include font(10px,10px,400);
+        text-align: right;
+        color: $main-color;
+      }
+      >div:nth-child(3){//로그인 버튼, IP Security 버튼
+        @include box(100%,36px);
+        @include flex(space-between,flex-end);
+        >button{
+          @include box(190px,100%,$main-color);
+          @include font(16px,20px,700);
+          @include flex;
+          border:0px;
+          border-radius: 5px;
+          color: $white-color;
+        }
+        >div{
+          @include box(92px,14px);
+          @include flex(space-between,center);
+          @include font(10px,10px,400);
+          >div{
+            @include box(40px,14px,$main-color);
+            @include flex;
+            border-radius: 8px;
+            >div{
+              @include box(10px,10px,$white-color);
+              border-radius: 5px;
+              position: relative;
+              left: 13px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+//---------------------media---------------------//
+//---------------------mobile---------------------//
+@media (max-width:768px){
+  #root{
+    @include box(100vw,926px);
+    >div{
+      >main{
+        >div:nth-child(2){//모바일 증시 칸 위치, 색상 변경
+          background-color:$white-color;
+          position: relative;
+          top:15px;
+          color:$black-color;
+        }
+        >div:nth-child(3){//모바일 날씨 칸 위치변경
+          position: relative;
+          bottom:20px;
+          left:20px;
+          transition: 0.5s;
+        }
+        >div:nth-child(3):hover{//모바일 날씨 칸 :hover 애니메이션
+          bottom:25px;
+          z-index: 3;
+          transition: 0.5s;
+        }
+      }
+      >footer{
+        >div:nth-child(1){//모바일 뉴스칸 점위치 변경, 글씨크기 변경
+          >div:nth-child(3){
+            justify-content: flex-start;
+          }
+          >div:nth-child(4){
+            div:nth-child(1){
+              font-size: 14px;
+            }
+          }
+        }
+        >div:nth-child(2){//모바일 크리에이터 ~ 칸 위치 변경, 글씨크기 변경
+          position:relative;
+          left: 10px;
+          bottom: 210px;
+          transition: 0.5s;
+          >div{
+            @include box(300px,66px);
+            >div{
+              @include box(100%,22px);
+              >div:nth-child(1){
+                @include box(95px,100%);
+                @include font(11px,14px,600);
+              }
+              >div:nth-child(2){
+                @include box(15px,100%);
+              }
+              >div:nth-child(3){
+                @include box(135px,100%);
+              }
+            }
+          }
+        }
+        >div:nth-child(2):hover{//모바일 크리에이터 ~ 칸 :hover 애니메이션
+          bottom: 160px;
+          transition: 0.5s;
+        }
+      }
+    }
+  }
+  .login-box{//모바일 로그인박스크기 변경
+    @include box(326px,188px);
+  }
+}
+
+
+//---------------------tablet---------------------//
+
+@media (min-width:769px)and(max-width:1200px){
+  #root{
+    @include box(100vw,1366px);
+    >aside{
+      >div{//태블릿 사이드바 점 위치 변경
+        @include box(100%,65%);
+        top:10%;
+      }
+    }
+    >div{
+      header{//태블릿 헤더 위치 변경
+        top:200px;
+      }
+      main{//태블릿 메인 위치변경, 
+        @include box(486px,488px);
+        top:305px;
+        >div:nth-child(2){
+          >div:nth-child(3){
+            >div{//태블릿 증시 오른쪽 막대기들 색 변경
+              background-color: $white-color;
+            }
+          }
+        }
+      }
+      footer{//태블릿 뉴스칸 위치,크기 변경
+        @include box(486px,500px);
+        top:828px;
+        >div:nth-child(1){
+          @include box(100%,385px,$white-color);
+        }
+        >div:nth-child(2){
+          @include box(100%,230px,$white-color);
+          position: relative;
+          bottom: 190px;
+          transition: 0.5s;
+        }
+        >div:nth-child(2):hover{//태블릿 크리에이터 ~ 칸 :hover 애니메이션
+          @include box(100%,230px,$white-color);
+          position: relative;
+          bottom: 136px;
+          transition: 0.5s;
+        }
+      }
+    }
+  }
+}
+
+
+//---------------------PC---------------------//
+
+@media (min-width:1201px){
+  #root{
+    @include box(100vw,1117px);
+    >aside{//PC 사이드바 점 위치 변경
+      @include box(5%,100%,$main-color);
+      >div{
+        @include box(100%,20%);
+        position: relative;
+        top:25%;
+        >div{
+          @include box(30px,30px,$sub-color);
+          border-radius: 0px;
+        }
+      }
+    }
+    >div{//PC 배경div 색상 변경
+      @include box(95%,100%,rgba(25, 206, 96, 0.2));
+      flex-direction: column;
+      header{//PC 헤더 위치 변경
+        @include box(225px,39px);
+        @include flex(space-between,flex-end);
+        position: relative;
+        top:95px;
+        right:142.5px;
+      }
+      main{//PC 메인 위치 변경
+        @include box(486px,488px);
+        position: relative;
+        top:125px;
+        right:273px;
+        >div:nth-child(2){
+          >div:nth-child(3){
+            >div{//PC 증시 오른쪽 막대기들 색 변경
+              background-color: $white-color;
+            }
+          }
+        }
+      }
+      footer{//PC 뉴스칸 위치, 크기 변경
+        @include box(486px,500px);
+        position: relative;
+        top:-125px;
+        left:273px;
+        >div:nth-child(1){
+          @include box(100%,385px,$white-color);
+        }
+        >div:nth-child(2){
+          @include box(100%,230px,$white-color);
+          position: relative;
+          bottom: 190px;
+          transition: 0.5s;
+        }
+        >div:nth-child(2):hover{//PC 크리에이터 ~ 칸 :hover 애니메이션
+          @include box(100%,230px,$white-color);
+          position: relative;
+          bottom: 136px;
+          transition: 0.5s;
+        }
+      }
+    }
+  }
+}

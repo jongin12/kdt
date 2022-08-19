@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body>div{
+      width: 200px;
+      height: 200px;
+      border:1px black solid;
+    }
+    .a{
+      width: 100px;
+      height: 100px;
+      border:1px black solid;
+      left:20px;
+      top:20px;
+    }
+    .b{
+      width: 100px;
+      height: 100px;
+      border:1px black solid;
+      right:30px;
+      top:30px;
+    }  
+    .absolute{position: absolute;}
+    .relative{position:relative;}
+    .bgc-red{background-color:red;}
+    .bgc-pink{background-color:pink;}
+    .bgc-skyblue{background-color:skyblue;}
+  </style>
+</head>
+<body>
+  <div class="bgc-pink relative">
+    <div class="absolute bgc-red a"></div>
+    <div class="absolute bgc-skyblue b"></div>
+  </div>
+  <div class="bgc-pink relative">
+    <div class="relative bgc-red a"></div>
+    <div class="relative bgc-skyblue b"></div>
+  </div>
+  <div class="bgc-pink"></div>
+</body>
+</html>

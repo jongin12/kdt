@@ -1,0 +1,118 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+p {
+  font-family: "Cute Font", cursive;
+}
+
+@media (max-width: 767px) {
+  #root {
+    width: 100vw;
+    height: 100vh;
+  }
+  header {
+    width: inherit;
+    height: 10vh;
+    background-color: salmon;
+  }
+  main {
+    width: inherit;
+    height: 90vh;
+    background-color: skyblue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  main > div:nth-child(1) {
+    width: 90vw;
+    height: 55vh;
+    background-color: gray;
+    margin: 5vw;
+  }
+  main > div:nth-child(2) {
+    width: 0vw;
+    height: 0vh;
+    background-color: pink;
+    margin: 0vw;
+  }
+  main > div:nth-child(3) {
+    width: 90vw;
+    height: 20vh;
+    background-color: blue;
+    margin: 5vw;
+  }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  #root {
+    width: 100vw;
+    height: 100vh;
+  }
+  header {
+    width: inherit;
+    height: 10vh;
+    background-color: salmon;
+  }
+  main {
+    width: inherit;
+    height: 90vh;
+    background-color: skyblue;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+  main > div:nth-child(1) {
+    width: 35vw;
+    height: 30vh;
+    background-color: gray;
+    margin: 3vw;
+  }
+  main > div:nth-child(2) {
+    width: 35vw;
+    height: 40vh;
+    background-color: pink;
+    margin: 3vw;
+  }
+  main > div:nth-child(3) {
+    width: 50vw;
+    height: 80vh;
+    background-color: blue;
+    margin: 3vw;
+  }
+}
+@media (min-width: 1024px) {
+  #root {
+    width: 100vw;
+    height: 100vh;
+  }
+  header {
+    width: inherit;
+    height: 10vh;
+    background-color: salmon;
+  }
+  main {
+    width: inherit;
+    height: 90vh;
+    background-color: skyblue;
+    display: flex;
+  }
+  main > div:nth-child(1) {
+    width: 15vw;
+    height: 90vh;
+    background-color: gray;
+  }
+  main > div:nth-child(2) {
+    width: 35vw;
+    height: 80vh;
+    background-color: pink;
+    margin: 3vw;
+  }
+  main > div:nth-child(3) {
+    width: 40vw;
+    height: 80vh;
+    background-color: blue;
+    margin: 3vw;
+  }
+}/*# sourceMappingURL=0803-media2.css.map */

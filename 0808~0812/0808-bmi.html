@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div>
+    cm : <input type="text" id="cm"><br>
+    kg : <input type="text" id="kg">
+    <button id="button">ㄱㄱ</button>
+    <p id="bmi"></p>
+    <p id="box"></p>
+  </div>
+  
+  <script>
+    const kg = document.getElementById('kg')
+    const cm = document.getElementById('cm')
+    const button = document.getElementById('button')
+    const bmibox = document.getElementById('bmi')
+    const box = document.getElementById('box')
+    
+    button.addEventListener('click',function(){
+      const kgv = Math.floor(kg.value);
+      const mv = (Math.floor(cm.value))/100;
+      var bmi = kgv/(mv^2);
+      bmibox.innerHTML ='bmi : ' + bmi;
+
+      if(bmi>25){
+        box.innerHTML ='과체중';
+      }
+      else if(bmi<=25 && bmi>18.5){
+        box.innerHTML ='정상';
+      }
+      else if(bmi<=18.5){
+        box.innerHTML ='저체중';
+      }
+    });
+  </script>
+</body>
+</html>

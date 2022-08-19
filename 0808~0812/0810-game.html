@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game</title>
+  <style>
+    *{
+      box-sizing: border-box;
+      margin: 0px;
+      padding: 0px;
+    }
+    #root{
+      width:100vw;
+      height: 100vh;
+      background-color: pink;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    #target1{
+      width: 40px;
+      height: 40px;
+      background-color:blue;
+      border-radius: 20px;
+      position: relative;
+    }
+    #target2{
+      width: 0px;
+      height: 30px;
+      background-color:red;
+      border-radius: 15px;
+      position: relative;
+    }
+    #scoreboard{
+      width: 500px;
+      height: 70px;
+      background-color:skyblue;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      font-size: 50px;
+      font-weight: 800;
+    }
+    main{
+      width: 500px;
+      height: 500px;
+      background-color: #fff;
+    }
+    footer{
+      width: 500px;
+      height: 70px;
+      background-color: skyblue;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      font-size: 50px;
+      font-weight: 800;
+    }
+  </style>
+</head>
+<body>
+  <div id="root">
+    <div>
+      <div id="scoreboard">0</div>
+      <div></div>
+    </div>
+    <main>
+      <div id="target1"></div>
+      <div id="target2"></div>
+    </main>
+    <footer id="time">30초</footer>
+  </div>
+  <script>
+
+    const target1 = document.getElementById('target1');
+    const scoreboard = document.getElementById('scoreboard');
+    const timer = document.getElementById('time');
+    let leftvalue1 = 0;
+    let topvalue1 = 0;
+    let score = 0;
+    let time = 30;
+    
+    
+    function game(){
+      target1.style.width = '40px'
+      leftvalue1 = Math.random()*460;
+      topvalue1 = Math.random()*460;
+      target1.style.left = leftvalue1 +'px'
+      target1.style.top = topvalue1 +'px'
+    }
+
+    target1.addEventListener('click',function(){
+      click();
+      score+=1000;
+    });
+
+    function click(){
+      scoreboard.innerHTML = score;
+      target1.style.width = '0px';
+      setTimeout(()=>game(),300);
+      if(score==0){
+        const timeset = setInterval(function(){
+        time -=1;
+        timer.innerHTML = time + '초'
+          if(time==0){
+            console.log(score+'점')
+            clearInterval(timeset)
+            target1.style.height = '0px'
+          }
+      },1000);  
+    }
+  }
+
+
+  </script>
+</body>
+</html>
