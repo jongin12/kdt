@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{
+      padding: 0px;
+      margin: 0px;
+      box-sizing: border-box;
+    }
+    body{
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    #root{
+      width: 100px;
+      height: 100px;
+      background-color: red;
+    }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+  <script>
+    const root = document.getElementById('root');
+    console.log(root);
+
+    root.addEventListener('click', function(){
+      let a = 1;
+      let abc = setInterval(() => {
+        a = a-0.1;
+        root.style.opacity = a;
+        if(a<=0){
+        clearInterval(abc);
+      }
+    }, 150)
+      setTimeout(() => {
+        let qwer = setInterval(() => {
+          a = a+0.1;
+          root.style.opacity = a;
+          if(a>=1){
+            clearInterval(qwer);
+          }
+        },200)
+      }, 1500);
+    })
+
+
+
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+    #root{
+      width: 90vw;
+      height: 90vh;
+      position: absolute;
+    }
+    #game{
+      width : 500px;
+      height: 500px;
+      border: 1px black solid;
+      display: flex;
+      flex-wrap: wrap;
+    }
+    #game>div{
+      width: 10%;
+      height: 10%;
+      border: 1px black solid;
+    }
+    #score{
+      width: 500px;
+      height: 100px;
+      background-color: black;
+      color:white;
+      display: flex;
+      font-size: 4em;
+      justify-content: end;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+  <div id="root">
+    <div id="game"></div>
+    <div id="score">0</div>
+  </div>
+  <script>
+    const root = document.getElementById('root');
+    const game = document.getElementById('game');
+    const scoreboard = document.getElementById('score'); 
+    let switch1 = [];
+    for(i=0;i<100;i++){
+      let div = document.createElement('div');
+      game.appendChild(div);
+      switch1.push('');
+    }
+    console.log(switch1);
+    console.log(game.children[1]);
+    let ox1 = Math.floor(Math.random()*100+1);
+    let ox2 = Math.floor(Math.random()*100+1);
+    switch1[ox1] = '2';
+    switch1[ox2] = '2';
+
+    let oxlist = [-11,-10,-9,-1,+1,+9,+10,+11];
+    let oxList = [];
+
+    for(let i=0;i<oxlist.length;i++){
+      oxList.push(ox1+oxlist[i])
+      oxList.push(ox2+oxlist[i])
+    }
+    console.log(oxList);
+    for(let i=0;i<oxList.length;i++){
+      switch1[oxList[i]] = '1'
+    }
+
+    let score = 0;
+
+    function scoreup(number){
+      score += number;
+      scoreboard.textContent = score;
+    }
+
+
+    for(let i=0;i<100;i++){
+      game.children[i].addEventListener('click',function(){
+        if(switch1[i] === '2'){
+          game.children[i].style.backgroundColor = 'red';
+          window.alert('게임오버 ' + score +'점')
+          game.style.display = 'none'
+        } else if(switch1[i] === '1'){
+        game.children[i].style.backgroundColor = 'orange';
+        scoreup(200)
+      } else {
+        game.children[i].style.backgroundColor = '#ccc';
+        scoreup(100)
+      }
+    })}
+    
+
+
+  </script>
+</body>
+</html>

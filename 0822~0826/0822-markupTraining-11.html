@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+  </style>
+</head>
+<body>
+  <script>
+    const body = document.body
+    console.log(body);
+
+    body.style.margin = '0px'
+    body.style.border = '0px'
+    body.style.boxSizing = 'borderBox'
+
+    function createtag(target,number,tagname){
+      for(let i=0; i<number; i++){
+        let createDiv = document.createElement(tagname);
+        target.appendChild(createDiv);
+      }
+    }
+
+    createtag(body,1,'div');
+
+    const root =  document.body.children[1];
+    console.log(root);
+    
+    createtag(root,8,'div');
+
+    root.style.display = 'flex';
+
+    let leftColor = ['#333','#555','#777','#999','#bbb','#ddd','#fff'];
+    let leftText = ['','R','E','T','U','R','N'];
+
+    for(i=0; i<leftColor.length; i++){
+      root.children[i].style.width = 100/6+'%';
+      root.children[i].style.height = '100vh';
+      root.children[i].style.backgroundColor = leftColor[i];
+      root.children[i].textContent = leftText[i];
+      root.children[i].style.display = 'flex';
+      root.children[i].style.justifyContent = 'center';
+      root.children[i].style.alignItems = 'center';
+      root.children[i].style.fontSize = '10em';
+      root.children[i].style.zIndex = '-' + i;
+      root.children[i].style.position = 'absolute';
+      root.children[i].style.left = 100/12*(i-1)+'%';
+    }
+    
+    createtag(root.children[7],2,'div');
+    const textbox = root.children[7];
+
+    textbox.style.width = 500/12+'%';
+    textbox.style.height = '100vh';
+    textbox.style.position = 'absolute';
+    textbox.style.left = 700/12+'%';
+    textbox.style.display = 'flex';
+    textbox.style.flexDirection = 'column';
+    textbox.style.justifyContent = 'center';
+    textbox.style.alignItems = 'center';
+
+    console.log(textbox);
+    
+    textbox.children[0].style.width = '95%';
+    textbox.children[0].style.height = '60px';
+    textbox.children[0].style.borderBottom = '1px #aaa solid';
+    textbox.children[1].style.width = '95%';
+    textbox.children[1].style.height = '80px';
+    textbox.children[1].style.display = 'flex';
+    textbox.children[1].style.justifyContent = 'center';
+    textbox.children[1].style.alignItems = 'flex-end';
+    textbox.children[1].style.fontSize = '10px';
+    
+    textbox.children[1].textContent = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem distinctio sunt consectetur vitae modi. Quos, non consectetur atque nihil sapiente vel, earum natus laboriosam dolorem unde ad eligendi explicabo labore!';
+
+    textbox.addEventListener('click',function(){
+      for(i=0; i<leftColor.length; i++){
+        root.children[i].style.width = 100/7+'%';
+        root.children[i].style.left = 100/7*(i)+'%';
+        root.children[i].style.transition = '1s';
+      }
+      textbox.style.width = 70+'%';
+      textbox.style.left = 30+'%';
+      textbox.style.justifyContent = 'flex-end';
+      textbox.style.alignItems = 'center';
+      textbox.children[0].style.borderBottom = '0px'
+      textbox.children[1].style.alignItems = 'flex-start';
+      textbox.children[1].style.fontSize = '16px';
+    })
+
+
+
+  </script>
+</body>
+</html>
