@@ -6,9 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <style>
-    qer{
-      flex-direction: column;
-      border-radius: 15px;
+    *{
+      margin:0px;
+      padding: 0px;
+      box-sizing: border-box;
     }
   </style>
 </head>
@@ -43,7 +44,6 @@
     createtag(root,2,'div');
     root.children[0].style.width = '100vw';
     root.children[0].style.height = '80vh';
-    root.children[0].style.border = '1px black solid';
     root.children[0].style.display = 'flex';
     root.children[0].style.justifyContent = 'center';
     root.children[0].style.alignItems = 'center';
@@ -83,14 +83,6 @@
     listBox[3].textContent = '←';
     listBox[4].textContent = '→';
 
-    let makeList = () => {
-      for(i=0;i<3;i++){
-        listBox[i].style.backgroundColor = listColor[i];
-        listBox[i].textContent = listText[i];
-      }
-    }
-    makeList();
-
     listBox[3].addEventListener('click',function(){
       list.unshift(list.pop());
       listColor.unshift(listColor.pop());
@@ -105,20 +97,37 @@
       makeList();
     })
 
+    root.children[1].style.width = '40vw';
+    root.children[1].style.height = '10vh';
+    root.children[1].style.display = 'flex';
+    root.children[1].style.justifyContent = 'space-between';
+    root.children[1].style.alignItems = 'center';
+    
+
+    createtag(root.children[1],list.length,'div');
+    const dot = root.children[1].children;
+    console.log(dot);
+
+    for(let i=0;i<dot.length;i++){
+      dot[i].style.width = '10px'
+      dot[i].style.height = '10px'
+      dot[i].style.borderRadius = '5px'
+    }
 
 
-
-
-
-    root.children[1].style.width = '100vw';
-    root.children[1].style.height = '20vh';
-
-
-
-
-
-
-
+    let makeList = () => {
+      for(i=0;i<3;i++){
+        listBox[i].style.backgroundColor = listColor[i];
+        listBox[i].textContent = listText[i];
+      }
+      for(let i=0;i<dot.length;i++){
+        dot[i].style.backgroundColor = '#ccc'
+      }
+      dot[list[0]].style.backgroundColor = '#666'
+      dot[list[1]].style.backgroundColor = '#000'
+      dot[list[2]].style.backgroundColor = '#666'
+    }
+    makeList();
 
   </script>
 </body>
