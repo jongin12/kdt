@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    qer{
+      flex-direction: column;
+      border-radius: 15px;
+    }
+  </style>
+</head>
+<body>
+  <script>
+
+    function createtag(target,number,tagname){
+      for(let i=0; i<number; i++){
+        let createDiv = document.createElement(tagname);
+        target.appendChild(createDiv);
+      }
+    }
+
+    let createroot = document.createElement('div');
+    document.body.prepend(createroot);
+    
+    const root = document.body.children[0];
+    console.log(root);
+
+    root.style.width = '100vw';
+    root.style.height = '100vh';
+    root.style.display = 'flex';
+    root.style.flexDirection = 'column';
+    root.style.justifyContent = 'center';
+    root.style.alignItems = 'center';
+    root.style.position = 'absolute';
+
+    let list = [0,1,2,3,4,5];
+    let listText = ['aaaa','bbbb','cccc','dddd','eeee','ffffff'];
+    let listColor = ['red','blue','pink','gray','black','green'];
+
+    createtag(root,2,'div');
+    root.children[0].style.width = '100vw';
+    root.children[0].style.height = '80vh';
+    root.children[0].style.border = '1px black solid';
+    root.children[0].style.display = 'flex';
+    root.children[0].style.justifyContent = 'center';
+    root.children[0].style.alignItems = 'center';
+
+    createtag(root.children[0],5,'div');
+    const listBox = root.children[0].children;
+    console.log(listBox);
+
+    for(i=0;i<3;i++){
+      listBox[i].style.width = '30%';
+      listBox[i].style.height = '70%';
+      listBox[i].style.border = '1px black solid';
+      listBox[i].style.color = 'white';
+      listBox[i].style.fontSize = '5em';
+      listBox[i].style.position = 'relative';
+      listBox[i].style.opacity = '0.8';
+    }
+    listBox[1].style.width = '40%'
+    listBox[1].style.height = '80%';
+    listBox[1].style.zIndex = '1';
+    listBox[0].style.left = '3%';
+    listBox[2].style.right = '3%';
+    listBox[1].style.opacity = '1';
+
+
+    for(i=3;i<5;i++){
+      listBox[i].style.width = '50px';
+      listBox[i].style.height = '50px';
+      listBox[i].style.position = 'absolute';
+      listBox[i].style.display = 'flex';
+      listBox[i].style.justifyContent = 'center';
+      listBox[i].style.alignItems = 'center';
+      listBox[i].style.fontSize = '3em'
+    }
+    listBox[3].style.left = '50px';
+    listBox[4].style.right = '50px';
+    listBox[3].textContent = '←';
+    listBox[4].textContent = '→';
+
+    let makeList = () => {
+      for(i=0;i<3;i++){
+        listBox[i].style.backgroundColor = listColor[i];
+        listBox[i].textContent = listText[i];
+      }
+    }
+    makeList();
+
+    listBox[3].addEventListener('click',function(){
+      list.unshift(list.pop());
+      listColor.unshift(listColor.pop());
+      listText.unshift(listText.pop());
+      makeList();
+    })
+
+    listBox[4].addEventListener('click',function(){
+      list.push(list.shift());
+      listColor.push(listColor.shift());
+      listText.push(listText.shift());
+      makeList();
+    })
+
+
+
+
+
+
+    root.children[1].style.width = '100vw';
+    root.children[1].style.height = '20vh';
+
+
+
+
+
+
+
+
+  </script>
+</body>
+</html>
