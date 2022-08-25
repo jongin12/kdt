@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="root">
+    <img src="./img/54.png" alt="">
+  </div>
+  <script>
+    function createtag(target,number,tagname){
+      for(let i=0; i<number; i++){
+        let createDiv = document.createElement(tagname);
+        target.appendChild(createDiv);
+      }
+    }
+    const root = document.getElementById('root');
+    const gora = root.children[0];
+
+    console.log(gora);
+    gora.style.position = 'absolute'
+    gora.style.transition="0.3s";
+    
+    let run = () =>{
+      let top = Math.random()*80;
+      let left = Math.random()*80;
+      gora.style.top = top+"%";
+      gora.style.left = left+"%";
+    }
+
+    const a = setInterval(() => {
+      run();
+    }, 300);
+
+    gora.addEventListener('click',function(){
+      clearInterval(a);
+      alert('good');
+    });
+
+  </script>
+</body>
+</html>

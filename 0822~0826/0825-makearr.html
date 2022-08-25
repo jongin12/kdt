@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+
+    let list = [
+      { 
+        number : 0,
+        bgc : 'red',
+        text : 'google',
+        link : "https://www.google.com/"
+      },{
+        number : 1,
+        bgc : 'blue',
+        text : 'naver',
+        link : "https://www.naver.com/"
+      },{
+        number : 2,
+        bgc : 'pink',
+        text : '',
+        link : "https://www.google.com/"
+      },{
+        number : 3,
+        bgc : 'gray',
+        text : 'ddd',
+        link : "https://www.google.com/"
+      },{
+        number : 4,
+        bgc : 'black',
+        text : 'eeee',
+        link : "https://www.google.com/"
+      },{
+        number : 5,
+        bgc : 'green',
+        text : 'fffff',
+        link : "https://www.google.com/"
+      },{
+        number : 6,
+        bgc : 'green',
+        text : 'fffff',
+        link : "https://www.google.com/"
+      }
+    ]
+
+    const arr=[];
+    const arrColor = ['red','blue','white'];
+    const arrText = ['aaa','bbb','ccc'];
+    
+    const makeArr = (number) => {
+      for(i=0;i<number;i++){
+        var child = {
+          number : i,
+          bgc : arrColor[i],
+          text : arrText[i],
+          link : ''
+        }
+        arr.push(child);
+      }
+    }
+    makeArr(5);
+
+    console.log(arr);
+
+  </script>
+</body>
+</html>

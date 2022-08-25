@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{
+      margin:0px;
+      padding: 0px;
+      box-sizing: border-box;
+    }
+    #root{
+      width: 600px;
+      height: 600px;
+      border:1px black solid;
+    }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+  <script>
+    const root = document.getElementById('root');
+
+    function createtag(target,number,tagname){
+      for(let i=0; i<number; i++){
+        let createDiv = document.createElement(tagname);
+        target.appendChild(createDiv);
+      }
+    }
+
+    createtag(root,4,'div');
+    createtag(root.children[1],2,'img');
+    createtag(root.children[2],1,'div');
+    createtag(root.children[3],6,'div');
+    const imgbox = root.children[1].children;
+    const namebox = root.children[2].children;
+    const statsbox = root.children[3].children;
+    
+    
+
+
+
+
+
+
+    let a = '54'
+
+    const _BASIC_URL = `https://pokeapi.co/api/v2/pokemon/${a}`;
+    const request = new XMLHttpRequest();
+      request.open("GET", _BASIC_URL);
+      request.responseType = "json";
+      request.send();
+      request.addEventListener('load', () => {
+        const _POKEMON_API = request.response;
+        // 상수 _POKEMON_API 데이터가 사장놈이 가져온 데이터이다.
+        console.log(_POKEMON_API);
+
+        console.log()
+
+        imgbox[0].setAttribute('src',_POKEMON_API.sprites.front_default);
+        imgbox[1].setAttribute('src',_POKEMON_API.sprites.back_default);
+
+        namebox[0].style.fontSize = '2em';
+        namebox[0].textContent = _POKEMON_API.name;
+
+        for(var key in _POKEMON_API.stats) {
+          statsbox[key].textContent = _POKEMON_API.stats[key].stat.name+' : '
+            +_POKEMON_API.stats[key].base_stat;
+        }
+
+
+
+
+
+
+
+
+      });
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </script>
+</body>
+</html>
