@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      // ---요구사항---
+      const root = document.getElementById("root");
+      // ---추가사항---
+      //  1.셔플
+      //  2.버튼만들어서 컨텐츠 추가
+      //  3.포켓몬스터 API써서 사진옮기기
+      // -------------
+      // ---작업순서---
+      // 1.만든 메서드, 함수를 가지고 재구성 -> 클래스화시키기
+      // 2.추가사항 구현
+      const init = {
+        // initJsonValue: {
+        //   width: "100vw",
+        //   height: "100vh",
+        //   display: "flex",
+        //   "flex-direction": "column",
+        //   "justify-content": "center",
+        //   "align-items": "center",
+        // },
+
+        cardList: [
+          {
+            number: 0,
+            bgc: "skyblue",
+            text: "0010",
+          },
+          {
+            number: 1,
+            bgc: "blue",
+            text: "111",
+          },
+          {
+            number: 2,
+            bgc: "pink",
+            text: "222",
+          },
+          {
+            number: 3,
+            bgc: "white",
+            text: "333",
+          },
+          {
+            number: 4,
+            bgc: "black",
+            text: "444",
+          },
+          {
+            number: 5,
+            bgc: "green",
+            text: "555",
+          },
+          {
+            number: 6,
+            bgc: "green",
+            text: "666",
+          },
+        ],
+
+        createCardList: (list_json) => {
+          return init.cardList.push(list_json);
+        },
+
+        createtag: (target, number, tagname) => {
+          for (let i = 0; i < number; i++) {
+            let createDiv = document.createElement(tagname);
+            target.appendChild(createDiv);
+          }
+          return target.children;
+        },
+
+        // 파라미터3개(next)#1
+        styleAppend: (target, jsonStyle) => {
+          let stringedJsonStyle = "";
+          for (let key in jsonStyle) {
+            // console.log(key, jsonStyle[key]);
+            stringedJsonStyle =
+              stringedJsonStyle + key + ": " + jsonStyle[key] + "; ";
+            // console.log(stringedJsonStyle);
+          }
+          target.setAttribute("style", stringedJsonStyle);
+        },
+        appendTextContent: (target, texts) => {
+          target.textContent = texts;
+        },
+
+        shuffle: (arr) => {
+          qwer = [];
+          i = 0;
+          while (i < arr.length) {
+            let n = Math.floor(Math.random() * arr.length);
+            if (init.same(n)) {
+              qwer.push(n);
+              i++;
+            }
+          }
+          for (let i = 0; i < qwer.length; i++) {
+            qwer[i] = arr[qwer[i]];
+          }
+          for (let i = 0; i < qwer.length; i++) {
+            arr[i] = qwer[i];
+            arr[i].number = i;
+          }
+        },
+        same: (n) => {
+          for (let j = 0; j < qwer.length; j++) {
+            if (qwer[j] === n) {
+              return false;
+            }
+          }
+          return true;
+        },
+      };
+
+      // 파라미터 추가#2
+      const makeList = () => {
+        console.log(init.cardList[3].bgc);
+        for (i = 0; i < listBox.length; i++) {
+          listBox[i].style.backgroundColor = init.cardList[i].bgc;
+          listBox[i].textContent = init.cardList[i].text;
+        }
+        for (let i = 0; i < dot.length; i++) {
+          dot[i].style.backgroundColor = "#ccc";
+        }
+        dot[init.cardList[0].number].style.backgroundColor = "#666";
+        dot[init.cardList[1].number].style.backgroundColor = "#000";
+        dot[init.cardList[2].number].style.backgroundColor = "#666";
+      };
+
+      const moveDot = () => {
+        for (let i = 0; i < dot.length; i++) {
+          dot[i].addEventListener("click", function () {
+            let a = init.cardList[1].number;
+            if (a > i) {
+              for (let j = 0; j < a - i; j++) {
+                init.cardList.unshift(init.cardList.pop());
+              }
+              // makeList ->
+              makeList();
+            } else if (a < i) {
+              for (let j = 0; j < i - a; j++) {
+                init.cardList.push(init.cardList.shift());
+              }
+              makeList();
+            }
+          });
+        }
+      };
+
+      // ----------------------------시작--------------------------------
+      // root에 스타일추가
+      init.styleAppend(root, {
+        width: "100vw",
+        height: "100vh",
+        display: "flex",
+        "background-color": "gray",
+        "flex-direction": "column",
+        "justify-content": "center",
+        "align-items": "center",
+        position: "absolute",
+      });
+
+      let createdDivs = init.createtag(root, 2, "div");
+      let middle = createdDivs[0];
+      let bottom = createdDivs[1];
+
+      init.styleAppend(middle, {
+        width: "90vw",
+        height: "60vh",
+        display: "flex",
+        "justify-content": "space-between",
+        "align-items": "center",
+      });
+
+      let middle2 = init.createtag(middle, 3, "div");
+
+      for (i = 0; i < 2; i++) {
+        init.styleAppend(middle2[i * 2], {
+          width: "50px",
+          height: "50px",
+          "background-color": "blue",
+        });
+      }
+
+      const leftmove = middle2[0];
+      const rightmove = middle2[2];
+
+      leftmove.addEventListener("click", function () {
+        init.cardList.unshift(init.cardList.pop());
+        makeList();
+      });
+      rightmove.addEventListener("click", function () {
+        init.cardList.push(init.cardList.shift());
+        makeList();
+      });
+
+      init.styleAppend(middle2[1], {
+        width: "80vw",
+        height: "60vh",
+        display: "flex",
+        "justify-content": "space-between",
+        "align-items": "center",
+      });
+
+      // listBox의 width값을 90/listBox.length로 하고 space-between
+      let listBox = init.createtag(middle2[1], 4, "div");
+      let listBoxWidth = String(90 / listBox.length + "%");
+      for (let i = 0; i < listBox.length; i++) {
+        init.styleAppend(listBox[i], {
+          width: listBoxWidth,
+          height: "100%",
+        });
+      }
+      init.shuffle(init.cardList);
+      makeList();
+
+      // HTML 구조 바꾸기
+    </script>
+  </body>
+</html>
