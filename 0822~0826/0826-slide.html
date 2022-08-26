@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{
+      margin:0px;
+      padding: 0px;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+<body>
+  <script>
+
+    function createtag(target,number,tagname){
+      for(let i=0; i<number; i++){
+        let createDiv = document.createElement(tagname);
+        target.appendChild(createDiv);
+      }
+    }
+
+    let createroot = document.createElement('div');
+    document.body.prepend(createroot);
+    
+    const root = document.body.children[0];
+    console.log(root);
+
+    root.style.width = '100vw';
+    root.style.height = '100vh';
+    root.style.display = 'flex';
+    root.style.flexDirection = 'column';
+    root.style.justifyContent = 'center';
+    root.style.alignItems = 'center';
+    root.style.position = 'absolute';
+
+    let list = [
+      { 
+        number : 0,
+        bgc : 'red',
+        text : '000',
+      },{
+        number : 1,
+        bgc : 'blue',
+        text : '111',
+      },{
+        number : 2,
+        bgc : 'pink',
+        text : '22',
+      },{
+        number : 3,
+        bgc : 'gray',
+        text : '333',
+      },{
+        number : 4,
+        bgc : 'black',
+        text : '444',
+      },{
+        number : 5,
+        bgc : 'green',
+        text : '555',
+      },{
+        number : 6,
+        bgc : 'green',
+        text : '666',
+      }
+    ];
+
+    //스타일링=======================================================================
+    createtag(root,2,'div');
+    root.children[0].style.width = '100vw';
+    root.children[0].style.height = '80vh';
+    root.children[0].style.display = 'flex';
+    root.children[0].style.justifyContent = 'center';
+    root.children[0].style.alignItems = 'center';
+
+    createtag(root.children[0],5,'div');
+    const listBox = root.children[0].children;
+    console.log(listBox);
+
+    for(i=0;i<3;i++){
+      listBox[i].style.width = '30%';
+      listBox[i].style.height = '70%';
+      listBox[i].style.border = '1px black solid';
+      listBox[i].style.color = 'white';
+      listBox[i].style.fontSize = '5em';
+      listBox[i].style.position = 'relative';
+      listBox[i].style.opacity = '0.8';
+    }
+    listBox[1].style.zIndex = '1';
+    listBox[0].style.right = '2%';
+    listBox[2].style.left = '2%';
+    listBox[1].style.opacity = '1';
+
+    for(i=3;i<5;i++){
+      listBox[i].style.width = '50px';
+      listBox[i].style.height = '50px';
+      listBox[i].style.position = 'absolute';
+      listBox[i].style.display = 'flex';
+      listBox[i].style.justifyContent = 'center';
+      listBox[i].style.alignItems = 'center';
+      listBox[i].style.fontSize = '3em'
+    }
+    listBox[3].style.left = '50px';
+    listBox[4].style.right = '50px';
+    listBox[3].textContent = '←';
+    listBox[4].textContent = '→';
+
+    root.children[1].style.width = '40vw';
+    root.children[1].style.height = '10vh';
+    root.children[1].style.display = 'flex';
+    root.children[1].style.justifyContent = 'space-between';
+    root.children[1].style.alignItems = 'center';
+    //스타일링 끝 =============================================================
+
+    listBox[3].addEventListener('click',function(){
+      list.unshift(list.pop());
+      makeList();
+    })
+
+    listBox[4].addEventListener('click',function(){
+      list.push(list.shift());
+      makeList();
+    })
+
+    createtag(root.children[1],list.length,'div');
+    const dot = root.children[1].children;
+    console.log(dot);
+
+    for(let i=0;i<dot.length;i++){
+      dot[i].style.width = '10px'
+      dot[i].style.height = '10px'
+      dot[i].style.borderRadius = '5px'
+    }
+
+    //listBox[0].onclick = link1;
+    //function link1() {
+    //  window.location.href = list[0].link;
+    //}
+    //listBox[1].onclick = link2;
+    //function link2() {
+    //  window.location.href = list[1].link;
+    //}
+    //listBox[2].onclick = link3;
+    //function link3() {
+    //  window.location.href = list[2].link;
+    //}
+
+    let makeList = () => {
+      for(i=0;i<3;i++){
+        listBox[i].style.backgroundColor = list[i].bgc;
+        listBox[i].textContent = list[i].text;
+      }
+      for(let i=0;i<dot.length;i++){
+        dot[i].style.backgroundColor = '#ccc'
+      }
+      dot[list[0].number].style.backgroundColor = '#666'
+      dot[list[1].number].style.backgroundColor = '#000'
+      dot[list[2].number].style.backgroundColor = '#666'
+    }
+    makeList();
+
+    //---------------------------
+    let asdf = (arr) => {
+      qwer = [];
+      i=0;
+      while(i<arr.length){
+        let n = Math.floor(Math.random()*arr.length);
+        if(same(n)){
+          qwer.push(n);
+          i++;
+        }
+      }
+      for(let i=0; i<qwer.length;i++){
+        qwer[i] = arr[qwer[i]];
+      }
+      for(let i=0; i<qwer.length;i++){
+        arr[i] = qwer[i];
+        arr[i].number = i;
+      }
+    }
+
+    function same(n){
+      for(let j=0;j<qwer.length;j++){
+        if(qwer[j]===n){
+          return false;
+        }
+      }
+      return true;
+    }
+    //--------------------------------------
+
+    root.children[1].addEventListener('click',function(){
+      console.log('shuffle');
+      asdf(list);
+      makeList();
+    })
+
+    console.log(dot.length);
+    console.log(list[1].number);
+
+    for(let i=0;i<dot.length;i++){
+      dot[i].addEventListener('click',function(){
+        let a = list[1].number;
+        if(a>i){
+          for(let j=0;j<a-i;j++){
+            list.unshift(list.pop());
+          }
+          makeList();
+        } else if(a<i){
+          for(let j=0;j<i-a;j++){
+            list.push(list.shift());
+          }
+          makeList();
+        }
+      })
+    }
+
+  </script>
+</body>
+</html>
