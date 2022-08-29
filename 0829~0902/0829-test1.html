@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="root"></div>
+  <div id="another"></div>
+
+  <script>
+    const root = document.getElementById('root');
+    const another = document.getElementById('another');
+
+    function elementstyling(ele, style, text) {
+      for(const key in style) {
+        ele.style[key] = style[key];
+        console.log(ele.style[key]);
+      }
+      ele.textContent = text;
+    }
+
+    console.log(root.backgroundColor);
+
+    elementstyling(root,{
+      backgroundColor : '#333',
+      width : '100px',
+      height : '100px'
+    })
+
+  </script>
+</body>
+</html>
