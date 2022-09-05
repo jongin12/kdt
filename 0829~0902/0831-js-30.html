@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="root"></div>
+  <script>
+    function addElement(tagName, props, parent = document.body, childrenNode = "") {
+      if(typeof(props) === 'object' && typeof(tagName) === 'string') {
+        let element = document.createElement(tagName);
+        // tagName의 태그를 생성한다.
+        element.innerHTML = childrenNode;
+        //childrenNode의 문자열을 안에 작성한다.
+        for(const cssValue in props) {
+          console.log(`검사하기, 동작하는 스타일링 프로퍼티 : ${cssValue}`);
+          //콘솔에 '~~~ : props의 key값'을 찍는다 
+          if(cssValue === 'id') {
+            element.id = props[cssValue];
+          }//props의 키값중 id가 있으면 id값으로 넣는다.
+          element.style[cssValue] = props[cssValue];
+        }// 나머지 props대로 css를 설정한다.
+        parent.appendChild(element);
+      }// parent로 설정한 부모요소의 맨 뒤에 넣는다.
+    }
+    const root = document.getElementById('root');
+    //root 설정
+    addElement('section',{
+      id : 'practics',
+      width : '100vw',
+      height : '100vh',
+      backgroundColor : '#333'
+    }, root, 'hello');
+
+    console.dir(root.children[0])
+  </script>
+</body>
+</html>
