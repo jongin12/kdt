@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script>
+    const root = document.getElementById('root');
+
+    const createTag = (parent, number, tagname) => {
+      for(let i=0;i<number;i++){
+        let tag = document.createElement(tagname);
+        parent.appendChild(tag);
+      }
+    }
+
+    let xData = [2,3,4,5,6,7,8,9,10];
+    let yData = [2,3,4,5,6,7,8];
+
+    let xy = (x,y) => {
+      return root.children[x].children[y];
+    }
+
+    const createTable = (xData,yData) => {
+      createTag(root,xData.length+1,'div');
+      
+      for(let i=0;i<xData.length+1;i++){
+        createTag(root.children[i],yData.length+1,'div');
+        root.children[i].style.display = 'flex';
+        for(let j=0;j<yData.length+1;j++){
+          root.children[i].children[j].style.width = '50px';
+          root.children[i].children[j].style.height = '50px';
+          root.children[i].children[j].style.border = '1px black solid';
+        }
+      }
+    
+      //Q-2. 백엔드 요청 : "스텝측정을 해야하므로, 곱셈이 몇 회 일어났는지 변수 multiplyCounter에 산출해 주세요."
+    
+      let multiplyCounter = 0;
+      
+      for(let i=1;i<xData.length+1;i++){
+        xy(i,0).textContent = xData[i-1];
+        xy(i,0).style.backgroundColor = 'pink';
+        for(let j=1;j<yData.length+1;j++){
+          xy(0,j).textContent = yData[j-1];
+          xy(0,j).style.backgroundColor = 'pink';
+          let num = xData[i-1]*yData[j-1];
+          if(num<0){
+            num = -num;
+          }
+          if(num%1 === 0){
+            xy(i,j).textContent = num;
+          } else {
+            xy(i,j).textContent = num.toFixed(1);
+          }
+          multiplyCounter++
+        }
+      }
+      console.log(multiplyCounter);
+    }
+
+    createTable(xData,yData);
+    
+
+    const Q5 = (x) => {
+      let sum = 0;
+      for(let i=0; i<yData.length; i++){
+        sum = sum + xData[x-1]*yData[i];
+      }
+      console.log(sum);
+    }
+
+    Q5(1);
+
+    let deleteCount = 0;
+    let deleteSum = 0;
+    for(let i=0;i<xData.length+1;i++){
+      for(let j=0;j<yData.length+1;j++){
+        xy(i,j).addEventListener('click',function(){
+          deleteSum += Number(this.textContent);
+          this.textContent = '';
+          deleteCount++
+          if(deleteCount>4){
+            alert(deleteSum);
+          }
+        })
+      }
+    }
+
+
+
+
+
+
+
+  </script>
+</body>
+</html>
